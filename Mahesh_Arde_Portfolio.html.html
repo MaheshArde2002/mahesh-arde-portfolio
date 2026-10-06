@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mahesh Arde | Linux Systems Engineer</title>
+<meta name="description" content="Mahesh Arde — Linux Systems Engineer focused on Linux administration, web servers, storage, networking, monitoring, security and AWS infrastructure.">
+<meta name="theme-color" content="#081018">
+<style>
+:root{--bg:#081018;--panel:#0d1721;--panel2:#101d29;--text:#edf5f8;--muted:#9aabb6;--line:#20313d;--green:#72e0a2;--cyan:#74c7ff;--max:1180px;--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}.shell{width:min(calc(100% - 36px),var(--max));margin:auto}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:28px}.nav-wrap{position:sticky;top:0;z-index:20;background:rgba(8,16,24,.84);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:.04em}.mark{width:38px;height:38px;display:grid;place-items:center;border:1px solid #36505f;border-radius:11px;color:var(--green);font:800 .78rem ui-monospace,monospace}.navlinks{display:flex;gap:24px;color:var(--muted);font-size:.88rem}.navlinks a:hover{color:var(--text)}.navbtn{border:1px solid #36505f;padding:9px 13px;border-radius:10px;font-weight:750;font-size:.8rem}
+.hero{padding:92px 0 100px;border-bottom:1px solid var(--line)}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}.eyebrow,.label{color:var(--green);font:800 .72rem ui-monospace,SFMono-Regular,monospace;letter-spacing:.13em}.hero h1{font-size:clamp(3.1rem,7vw,6.3rem);line-height:.96;letter-spacing:-.065em;margin:18px 0 28px}.hero h1 span{color:var(--cyan)}.lead{max-width:720px;color:var(--muted);font-size:1.12rem}.actions{display:flex;flex-wrap:wrap;gap:11px;margin:30px 0}.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:10px;border:1px solid #36505f;font-weight:800;font-size:.84rem}.btn.primary{background:var(--green);border-color:var(--green);color:#06130c}.btn:hover{transform:translateY(-2px)}.meta{display:flex;gap:22px;flex-wrap:wrap;color:var(--muted);font:700 .75rem ui-monospace,monospace}.meta strong{color:var(--text)}
+.terminal-card{border:1px solid #263d4b;border-radius:20px;background:linear-gradient(160deg,#0e1b26,#09121a);box-shadow:0 28px 80px rgba(0,0,0,.32);overflow:hidden}.terminal-head{padding:13px 17px;border-bottom:1px solid var(--line);display:flex;gap:7px;align-items:center;color:#728692;font:700 .72rem ui-monospace,monospace}.dot{width:8px;height:8px;border-radius:50%;background:#334957}.terminal{padding:26px;font:600 .78rem ui-monospace,monospace;color:#a9bbc4;min-height:390px}.prompt{color:var(--green)}.cmd{color:#e6f0f4}.out{color:#77c8ff}.cursor{display:inline-block;width:7px;height:15px;background:var(--green);vertical-align:-3px;animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}.server{margin:25px 0;border:1px solid var(--line);border-radius:13px;padding:16px;background:#0a141d}.server-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:9px 0;font-size:.76rem}.server-row:last-child{border:0}.ok{color:var(--green)}
+section{padding:94px 0}.section-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:end;margin-bottom:42px}.section-head h2{font-size:clamp(2.1rem,4vw,4rem);line-height:1;letter-spacing:-.055em;margin:12px 0}.section-head p{color:var(--muted);max-width:690px}
+.about{background:#0a131c;border-block:1px solid var(--line)}.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px}.about-copy p{font-size:1.05rem;color:var(--muted)}.facts{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.fact{padding:22px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}.fact:nth-child(even){border-right:0}.fact:nth-last-child(-n+2){border-bottom:0}.fact b{display:block;font-size:1.3rem}.fact span{font-size:.76rem;color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}.filter{cursor:pointer;background:transparent;color:var(--muted);border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-weight:750}.filter.active,.filter:hover{background:var(--text);color:var(--bg);border-color:var(--text)}.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.project{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:23px;min-height:330px;display:flex;flex-direction:column;transition:.22s}.project:hover{transform:translateY(-5px);border-color:#416071;box-shadow:0 18px 45px rgba(0,0,0,.2)}.project-top{display:flex;justify-content:space-between;gap:10px}.project-index{color:var(--green);font:800 .72rem ui-monospace,monospace}.project-cat{color:var(--muted);font:700 .66rem ui-monospace,monospace;text-transform:uppercase;text-align:right}.project h3{font-size:1.2rem;line-height:1.2;margin:28px 0 12px}.project p{color:var(--muted);font-size:.87rem;margin:0 0 18px}.tech{margin-top:auto;padding:14px 0;border-top:1px solid var(--line);color:#aab9c1;font-size:.73rem}.repo{display:inline-block;margin-top:7px;color:var(--cyan);font-weight:800;font-size:.8rem}.hidden{display:none!important}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.skill{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:25px}.skill h3{margin:0 0 16px}.skill-list{display:flex;flex-wrap:wrap;gap:8px}.skill-list span{padding:7px 10px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:#b8c7ce;font-size:.78rem}
+.experience{border-top:1px solid var(--line)}.timeline{border-left:1px solid #36505f;padding-left:28px}.job{position:relative}.job:before{content:"";position:absolute;width:9px;height:9px;border:2px solid var(--green);border-radius:50%;background:var(--bg);left:-34px;top:7px}.job h3{margin:0}.job .company{color:var(--green);font-weight:750}.job p,.job li{color:var(--muted);font-size:.9rem}.job ul{padding-left:18px}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.cert{border:1px solid var(--line);background:var(--panel);border-radius:15px;padding:24px}.badge{width:43px;height:43px;display:grid;place-items:center;border:1px solid #36505f;border-radius:50%;color:var(--green);font:800 .7rem ui-monospace,monospace}.cert h3{margin:22px 0 5px}.cert p{color:var(--muted);font-size:.83rem}
+.contact{background:#0a131c;border-top:1px solid var(--line)}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}.contact h2{font-size:clamp(2.5rem,5vw,5rem);line-height:.98;letter-spacing:-.06em;margin:15px 0 20px}.contact p{color:var(--muted)}.contact-links{display:grid;gap:12px;margin-top:28px}.contact-links a{padding:15px 16px;border:1px solid var(--line);border-radius:11px;background:var(--panel)}.contact-links span{display:block;color:var(--muted);font-size:.7rem;font-family:monospace}.contact-links b{font-size:.88rem}.codebox{border:1px solid var(--line);background:#071018;border-radius:18px;padding:26px;font:600 .8rem/2 ui-monospace,monospace;color:#aabac3}.codebox .g{color:var(--green)}.codebox .c{color:var(--cyan)}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem}footer .foot{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:950px){.navlinks{display:none}.hero-grid,.about-grid,.contact-grid,.section-head{grid-template-columns:1fr}.project-grid{grid-template-columns:1fr 1fr}.certs{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.shell{width:min(calc(100% - 26px),var(--max))}.hero{padding:65px 0 75px}.hero h1{font-size:clamp(2.8rem,15vw,4.3rem)}section{padding:72px 0}.project-grid,.skills,.certs{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.fact{border-right:0!important}.fact:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.fact:last-child{border-bottom:0}.actions{display:grid}.btn{width:100%}footer .foot{flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="nav-wrap">
+<nav class="nav shell">
+<a class="brand" href="#home"><span class="mark">MA</span>MAHESH ARDE</a>
+<div class="navlinks"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a></div>
+<a class="navbtn" href="https://github.com/MaheshArde2002" target="_blank" rel="noopener">GitHub ↗</a>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="shell hero-grid">
+<div>
+<div class="eyebrow">LINUX SYSTEMS ENGINEER · AWS · INFRASTRUCTURE</div>
+<h1>Linux systems.<br><span>Built to run.</span></h1>
+<p class="lead">Linux Systems Engineer with 1 year of hands-on experience in Linux server administration, infrastructure support, troubleshooting, networking, web server administration, storage management and AWS infrastructure.</p>
+<div class="actions"><a class="btn primary" href="#projects">Explore Linux Projects</a><a class="btn" href="Mahesh_Arde_Resume.pdf">Download Resume</a><a class="btn" href="mailto:mahesh.arde2002@gmail.com">Contact Me</a></div>
+<div class="meta"><span><strong>RHEL</strong> · CentOS · Ubuntu</span><span><strong>AWS</strong> · EC2 · VPC · IAM</span><span><strong>FOCUS</strong> · Linux Administration</span></div>
+</div>
+<div class="terminal-card">
+<div class="terminal-head"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span>mahesh@linux-server</span></div>
+<div class="terminal">
+<div><span class="prompt">$</span> <span class="cmd">hostnamectl</span></div>
+<div class="out">Operating System: Ubuntu / RHEL</div>
+<div class="out">Kernel: Linux</div>
+<div class="server">
+<div class="server-row"><span>SSH service</span><span class="ok">● active</span></div>
+<div class="server-row"><span>Nginx / Apache</span><span class="ok">● configured</span></div>
+<div class="server-row"><span>Storage / LVM</span><span class="ok">● managed</span></div>
+<div class="server-row"><span>Monitoring</span><span class="ok">● Zabbix</span></div>
+</div>
+<div><span class="prompt">$</span> <span class="cmd">systemctl status nginx</span></div>
+<div class="out">● nginx.service — active (running)</div>
+<br>
+<div><span class="prompt">$</span> <span class="cmd">df -h</span> <span class="cursor"></span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="shell">
+<div class="section-head"><div><div class="label">01 / PROFILE</div><h2>Linux first.<br>AWS where it fits.</h2></div><p>My portfolio is centered on practical Linux system administration. AWS, networking and automation support that core rather than replacing it.</p></div>
+<div class="about-grid">
+<div class="about-copy">
+<p>I administer Linux environments across RHEL, CentOS and Ubuntu, working with users and permissions, SSH, systemd, storage, filesystems, web servers, file sharing, firewalls, monitoring and troubleshooting.</p>
+<p>My hands-on projects are built as labs and infrastructure exercises: configure the service, test it, troubleshoot failures, document the result and publish the work on GitHub.</p>
+</div>
+<div class="facts">
+<div class="fact"><b>1 Year</b><span>Linux Systems Engineer experience</span></div>
+<div class="fact"><b>RHEL / CentOS</b><span>Enterprise Linux practice</span></div>
+<div class="fact"><b>Ubuntu</b><span>Server administration</span></div>
+<div class="fact"><b>AWS</b><span>EC2 · VPC · S3 · IAM · RDS</span></div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="projects">
+<div class="shell">
+<div class="section-head"><div><div class="label">03 / PROJECTS</div><h2>Hands-on labs.</h2></div><p>Linux administration is the main story. The project collection covers identity, storage, networking, web servers, security, monitoring, automation and AWS infrastructure.</p></div>
+<div class="filters" id="filters"></div>
+<div class="project-grid" id="projectGrid">
+
+      <article class="project" data-category="Linux Administration">
+        <div class="project-top"><span class="project-index">/01</span><span class="project-cat">Linux Administration</span></div>
+        <h3>Linux User Management Lab</h3>
+        <p>User/group administration, permissions, sudo configuration and SSH access.</p>
+        <div class="tech">Linux · Users · Groups · Permissions · SSH</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/linux-user-management-lab" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Linux Administration">
+        <div class="project-top"><span class="project-index">/02</span><span class="project-cat">Linux Administration</span></div>
+        <h3>Linux Permissions Management Lab</h3>
+        <p>Hands-on practice with ownership, chmod, ACLs, SUID, SGID and sticky-bit permissions.</p>
+        <div class="tech">Linux · ACL · chmod · chown · SUID · SGID</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/linux-permissions-management-lab" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Linux Administration">
+        <div class="project-top"><span class="project-index">/03</span><span class="project-cat">Linux Administration</span></div>
+        <h3>Linux System Administration Lab</h3>
+        <p>Routine Linux administration covering packages, services, SSH, Cron and system troubleshooting.</p>
+        <div class="tech">Ubuntu · systemctl · APT · SSH · Cron</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/linux-system-administration-lab" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Monitoring & Bash">
+        <div class="project-top"><span class="project-index">/04</span><span class="project-cat">Monitoring & Bash</span></div>
+        <h3>Linux System Monitoring</h3>
+        <p>Bash-based monitoring of CPU, memory, disk usage, processes, services and system logs.</p>
+        <div class="tech">Bash · top · free · df · systemctl · journalctl · Cron</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/linux-system-monitoring" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Automation">
+        <div class="project-top"><span class="project-index">/05</span><span class="project-cat">Automation</span></div>
+        <h3>Bash Automation Scripts</h3>
+        <p>Scripts for backups, user creation, disk monitoring, log cleanup and recurring administration tasks.</p>
+        <div class="tech">Bash · Linux · Cron · Shell Scripting</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/bash-automation-scripts" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Storage Administration">
+        <div class="project-top"><span class="project-index">/06</span><span class="project-cat">Storage Administration</span></div>
+        <h3>Linux Fdisk Disk Management</h3>
+        <p>Disk partitioning and filesystem management using fdisk and standard Linux storage commands.</p>
+        <div class="tech">Linux · fdisk · lsblk · Filesystems · Mounting</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/linux-fdisk-disk-management" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Storage Administration">
+        <div class="project-top"><span class="project-index">/07</span><span class="project-cat">Storage Administration</span></div>
+        <h3>CentOS 7 LVM Storage Management</h3>
+        <p>Configured physical volumes, volume groups and logical volumes, then formatted and mounted filesystems persistently.</p>
+        <div class="tech">CentOS 7 · LVM · PV · VG · LV · EXT4 · fstab</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/centos7-lvm-storage-management" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="File Services">
+        <div class="project-top"><span class="project-index">/08</span><span class="project-cat">File Services</span></div>
+        <h3>Linux NFS Server & Client Lab</h3>
+        <p>Configured NFS exports, client mounts, permissions and persistent filesystem mounts.</p>
+        <div class="tech">Linux · NFS · /etc/exports · fstab · SSH</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/linux-nfs-server-client-lab" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="File Services">
+        <div class="project-top"><span class="project-index">/09</span><span class="project-cat">File Services</span></div>
+        <h3>Samba File Server – Ubuntu</h3>
+        <p>Configured Samba-based file sharing and practiced Linux permissions and service management.</p>
+        <div class="tech">Ubuntu · Samba · Permissions · systemctl</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/samba-file-server-ubuntu" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="File Services">
+        <div class="project-top"><span class="project-index">/10</span><span class="project-cat">File Services</span></div>
+        <h3>Linux vsftpd FTP Server Lab</h3>
+        <p>Configured an FTP server with vsftpd and practiced service, user and network access controls.</p>
+        <div class="tech">Linux · vsftpd · FTP · Firewall · Users</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/linux-vsftpd-ftp-server-lab" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Security">
+        <div class="project-top"><span class="project-index">/11</span><span class="project-cat">Security</span></div>
+        <h3>Linux Firewalld Administration Lab</h3>
+        <p>Configured zones, services, ports and rich rules with firewalld for controlled Linux host access.</p>
+        <div class="tech">RHEL/CentOS · firewalld · Zones · Rich Rules · Ports</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/linux-firewalld-administration-lab" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Monitoring">
+        <div class="project-top"><span class="project-index">/12</span><span class="project-cat">Monitoring</span></div>
+        <h3>Zabbix Server & Agent Monitoring</h3>
+        <p>Built a Zabbix server/agent monitoring environment with Linux hosts, MySQL and Apache.</p>
+        <div class="tech">Ubuntu · Zabbix · MySQL · Apache · Monitoring</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/zabbix-server-agent-monitoring" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Web Servers">
+        <div class="project-top"><span class="project-index">/13</span><span class="project-cat">Web Servers</span></div>
+        <h3>Apache HTTPD Virtual Host Lab</h3>
+        <p>Configured Apache virtual hosts, document roots, aliases, logs and firewall access.</p>
+        <div class="tech">RHEL/CentOS · Apache httpd · VirtualHost · firewalld</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/apache-httpd-virtual-host-lab" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="High Availability">
+        <div class="project-top"><span class="project-index">/14</span><span class="project-cat">High Availability</span></div>
+        <h3>HAProxy Load Balancer Web Server Lab</h3>
+        <p>Configured HAProxy as a frontend load balancer distributing HTTP traffic across Linux web servers.</p>
+        <div class="tech">HAProxy · Apache · HTTP · Load Balancing · Linux</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/haproxy-load-balancer-web-server-lab" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="AWS + Linux">
+        <div class="project-top"><span class="project-index">/15</span><span class="project-cat">AWS + Linux</span></div>
+        <h3>Secure AWS Web Server</h3>
+        <p>Deployed a Linux web server on EC2 with VPC networking, security groups and Nginx.</p>
+        <div class="tech">AWS EC2 · VPC · Security Groups · Nginx · Linux</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/secure-aws-web-server" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Infrastructure as Code">
+        <div class="project-top"><span class="project-index">/16</span><span class="project-cat">Infrastructure as Code</span></div>
+        <h3>Terraform AWS EC2 Instance</h3>
+        <p>Provisioned an AWS EC2 environment using Terraform to practice repeatable infrastructure deployment.</p>
+        <div class="tech">Terraform · AWS · EC2 · IaC</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/terraform-aws-ec2-instance" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="AWS Infrastructure">
+        <div class="project-top"><span class="project-index">/17</span><span class="project-cat">AWS Infrastructure</span></div>
+        <h3>AWS EC2 + RDS MySQL Connection</h3>
+        <p>Connected an Ubuntu EC2 instance to Amazon RDS MySQL and practiced secure connectivity and SQL operations.</p>
+        <div class="tech">EC2 · RDS · MySQL · Security Groups · Ubuntu</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/aws-ec2-rds-mysql-connection" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="AWS + Linux">
+        <div class="project-top"><span class="project-index">/18</span><span class="project-cat">AWS + Linux</span></div>
+        <h3>AWS DevOps EC2 Nginx Assignment</h3>
+        <p>Deployed a simple website on an Ubuntu EC2 instance using Nginx and AWS networking.</p>
+        <div class="tech">AWS EC2 · Ubuntu · Nginx · HTML</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/aws-devops-ec2-nginx-assignment" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Database">
+        <div class="project-top"><span class="project-index">/19</span><span class="project-cat">Database</span></div>
+        <h3>MySQL IT Support DB</h3>
+        <p>Practiced MySQL database administration, SQL queries and structured data operations.</p>
+        <div class="tech">MySQL · SQL · Linux</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/mysql-it-support-db" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Automation">
+        <div class="project-top"><span class="project-index">/20</span><span class="project-cat">Automation</span></div>
+        <h3>Smart Email Sender</h3>
+        <p>Flask-based application using MySQL, Pandas and scheduled jobs for automated email processing.</p>
+        <div class="tech">Python · Flask · MySQL · Pandas · APScheduler</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/smart_email_sender" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+
+      <article class="project" data-category="Practice">
+        <div class="project-top"><span class="project-index">/21</span><span class="project-cat">Practice</span></div>
+        <h3>DemoProject</h3>
+        <p>Early GitHub practice repository used as a foundation for version control and project publishing.</p>
+        <div class="tech">Git · GitHub</div>
+        <a class="repo" href="https://github.com/MaheshArde2002/DemoProject" target="_blank" rel="noopener">View repository ↗</a>
+      </article>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="shell">
+<div class="section-head"><div><div class="label">04 / SKILLS</div><h2>System administration stack.</h2></div><p>Skills taken directly from the new resume, organized around the work a Linux administrator actually performs.</p></div>
+<div class="skills">
+<div class="skill"><h3>Linux Administration</h3><div class="skill-list"><span>RHEL</span><span>CentOS</span><span>Ubuntu</span><span>Users & Groups</span><span>Permissions</span><span>ACL</span><span>SUID / SGID</span><span>sudoers</span><span>SSH</span><span>systemd</span><span>Processes</span><span>Logs</span><span>Cron</span></div></div>
+<div class="skill"><h3>Storage & File Services</h3><div class="skill-list"><span>fdisk</span><span>Filesystems</span><span>Mounting</span><span>/etc/fstab</span><span>LVM</span><span>RAID Concepts</span><span>NFS</span><span>Samba</span><span>FTP</span><span>SFTP</span></div></div>
+<div class="skill"><h3>Networking & Security</h3><div class="skill-list"><span>TCP/IP</span><span>IP Addressing</span><span>DNS</span><span>DHCP</span><span>Ports</span><span>Routing</span><span>Subnetting</span><span>/etc/hosts</span><span>firewalld</span><span>iptables</span><span>SELinux</span></div></div>
+<div class="skill"><h3>Web, Monitoring & HA</h3><div class="skill-list"><span>Apache</span><span>Nginx</span><span>Tomcat</span><span>Zabbix</span><span>Nagios</span><span>HAProxy</span><span>OpenVPN</span><span>Postfix</span><span>MySQL</span><span>MongoDB</span></div></div>
+<div class="skill"><h3>AWS & Infrastructure as Code</h3><div class="skill-list"><span>EC2</span><span>S3</span><span>IAM</span><span>VPC</span><span>Security Groups</span><span>RDS</span><span>CloudWatch</span><span>Terraform</span></div></div>
+<div class="skill"><h3>Tools & Automation</h3><div class="skill-list"><span>Bash</span><span>Git</span><span>GitHub</span><span>VMware</span><span>VirtualBox</span><span>CRON</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="certifications">
+<div class="shell">
+<div class="section-head"><div><div class="label">05 / CREDENTIALS</div><h2>Certifications.</h2></div><p>Formal credentials supporting the practical infrastructure work shown above.</p></div>
+<div class="certs">
+<div class="cert"><div class="badge">AWS</div><h3>AWS Certified Cloud Practitioner</h3><p>Amazon Web Services<br>Cloud fundamentals and AWS services.</p></div>
+<div class="cert"><div class="badge">AWS</div><h3>AWS Technical Essentials</h3><p>Amazon Web Services<br>Practical AWS technical foundation.</p></div>
+<div class="cert"><div class="badge">BCA</div><h3>Bachelor of Computer Applications</h3><p>Kirandevi Saraf College / Tilak Maharashtra Vidyapeeth<br>2023 – 2026 · 7.70/10</p></div>
+</div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="shell contact-grid">
+<div><div class="label">06 / CONTACT</div><h2>Let's talk<br>Linux.</h2><p>Open to Linux Systems Engineer, Linux Support Engineer, Junior Linux Administrator and Cloud Infrastructure opportunities.</p>
+<div class="contact-links">
+<a href="mailto:mahesh.arde2002@gmail.com"><span>EMAIL</span><b>mahesh.arde2002@gmail.com</b></a>
+<a href="tel:+918828552780"><span>PHONE</span><b>+91 88285 52780</b></a>
+<a href="https://www.linkedin.com/in/mahesh-arde-75b0bb31a/" target="_blank" rel="noopener"><span>LINKEDIN</span><b>linkedin.com/in/mahesh-arde-75b0bb31a</b></a>
+<a href="https://github.com/MaheshArde2002" target="_blank" rel="noopener"><span>GITHUB</span><b>github.com/MaheshArde2002</b></a>
+</div></div>
+<div class="codebox">
+<span class="g">$ whoami</span><br>
+mahesh — linux systems engineer<br><br>
+<span class="g">$ cat focus.txt</span><br>
+<span class="c">Linux administration</span><br>
+Web servers · Storage · Networking<br>
+Security · Monitoring · Bash<br>
+AWS infrastructure · Terraform<br><br>
+<span class="g">$ echo "ready to build and troubleshoot"</span><br>
+ready to build and troubleshoot<span class="cursor"></span>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="shell foot"><span>© 2026 Mahesh Arde</span><span>Linux Systems Engineer · AWS · Infrastructure</span></div></footer>
+
+<script>
+const projects = [...document.querySelectorAll('.project')];
+const filterBox = document.getElementById('filters');
+const cats = ['All', ...new Set(projects.map(p=>p.dataset.category))];
+filterBox.innerHTML = cats.map((c,i)=>`<button class="filter ${i===0?'active':''}" data-cat="${c}">${c}</button>`).join('');
+filterBox.addEventListener('click', e=>{
+  const b=e.target.closest('[data-cat]'); if(!b)return;
+  document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+  projects.forEach(p=>p.classList.toggle('hidden', b.dataset.cat!=='All' && p.dataset.category!==b.dataset.cat));
+});
+</script>
+</body>
+</html>
