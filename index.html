@@ -1,1051 +1,287 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mahesh Arde - Linux System Administrator portfolio. Linux, Bash, Ansible, Zabbix and AWS projects.">
+  <meta name="description" content="Mahesh Arde — Linux System Administrator portfolio featuring Linux administration, Bash, Ansible, Zabbix, storage, networking and AWS labs.">
+  <meta name="theme-color" content="#0b1020">
   <title>Mahesh Arde | Linux System Administrator</title>
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
     :root {
-      --bg: #080d1a;
-      --surface: #111a2c;
-      --blue: #3987ff;
-      --purple: #9865ff;
-      --text: #f4f7ff;
-      --muted: #9ba8bd;
-      --border: rgba(255,255,255,0.09);
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1160px, 90%);
-      margin: auto;
-    }
-
-    /* HEADER */
-
-    header {
-      height: 82px;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-      background: rgba(8,13,26,0.92);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(15px);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 23px;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--blue);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .nav-links a:hover {
-      color: var(--blue);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 14px;
-      transition: .3s;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--blue);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #216be0;
-      transform: translateY(-3px);
-    }
-
-    .btn-outline {
-      border: 1px solid #53617a;
-      color: white;
-    }
-
-    .btn-outline:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 620px;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      align-items: center;
-      gap: 60px;
-      padding-top: 65px;
-      padding-bottom: 65px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 15px;
-      background: rgba(57,135,255,.12);
-      border: 1px solid rgba(57,135,255,.3);
-      border-radius: 30px;
-      color: #83b4ff;
-      font-size: 12px;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 {
-      font-size: clamp(39px, 5vw, 64px);
-      line-height: 1.12;
-      letter-spacing: -2px;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-      color: var(--blue);
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 560px;
-      font-size: 16px;
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    /* TERMINAL VISUAL */
-
-    .visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 380px;
-    }
-
-    .glow {
-      position: absolute;
-      width: 310px;
-      height: 310px;
-      background: radial-gradient(circle,
-        rgba(57,135,255,.35),
-        rgba(152,101,255,.12),
-        transparent 70%);
-      filter: blur(12px);
-    }
-
-    .terminal {
-      width: 100%;
-      max-width: 420px;
-      position: relative;
-      background: #0d1423;
-      border: 1px solid rgba(95,143,255,.4);
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 60px rgba(57,135,255,.15);
-      transform: rotate(-2deg);
-    }
-
-    .terminal-header {
-      background: #19243a;
-      padding: 13px 17px;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      color: #aebbd1;
-      font-size: 12px;
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-    }
-
-    .red { background: #ff5c5c; }
-    .yellow { background: #ffc857; }
-    .green { background: #40d89a; }
-
-    .terminal-body {
-      padding: 25px;
-      font-family: monospace;
-      font-size: 13px;
-      line-height: 2.1;
-    }
-
-    .terminal-body .command {
-      color: #65dba5;
-    }
-
-    .terminal-body .output {
-      color: #a8b5c9;
-    }
-
-    .terminal-body .blue {
-      color: #6ca8ff;
-    }
-
-    /* HIGHLIGHTS */
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      margin-bottom: 100px;
-      padding: 30px 15px;
-    }
-
-    .stat {
-      text-align: center;
-      padding: 10px;
-      border-right: 1px solid var(--border);
-    }
-
-    .stat:last-child {
-      border: none;
-    }
-
-    .stat h3 {
-      color: var(--blue);
-      font-size: 22px;
-      margin-bottom: 5px;
-    }
-
-    .stat p {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* GENERAL SECTIONS */
-
-    section {
-      padding: 80px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-title h2 {
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-
-    .section-title span {
-      color: var(--blue);
-    }
-
-    .section-title p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* ABOUT */
-
-    .about-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 35px;
-      border-radius: 15px;
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .about-box p {
-      color: var(--muted);
-      margin-bottom: 15px;
-    }
-
-    /* SKILLS */
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .skill-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 25px;
-      border-radius: 12px;
-      transition: .3s;
-    }
-
-    .skill-card:hover,
-    .project-card:hover {
-      border-color: var(--blue);
-      transform: translateY(-5px);
-    }
-
-    .skill-card h3 {
-      margin-bottom: 17px;
-      color: #83b4ff;
-      font-size: 17px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-    }
-
-    .tags span {
-      padding: 6px 11px;
-      border-radius: 5px;
-      background: rgba(57,135,255,.1);
-      color: #b9d4ff;
-      font-size: 12px;
-    }
-
-    /* PROJECTS */
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 28px;
-      border-radius: 13px;
-      transition: .3s;
-    }
-
-    .project-icon {
-      font-size: 27px;
-      margin-bottom: 15px;
-    }
-
-    .project-card h3 {
-      margin-bottom: 12px;
-    }
-
-    .project-card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-
-    .project-link {
-      display: inline-block;
-      color: #76aaff;
-      font-size: 13px;
-      margin-top: 18px;
-    }
-
-    /* EXPERIENCE */
-
-    .experience-box {
-      max-width: 850px;
-      margin: auto;
-      background: var(--surface);
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-
-    .experience-box h3 {
-      color: #83b4ff;
-      margin-bottom: 5px;
-    }
-
-    .experience-box p,
-    .experience-box li {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .experience-box ul {
-      padding-left: 20px;
-      margin-top: 15px;
-    }
-
-    /* CERTIFICATIONS */
-
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .cert-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 25px;
-      border-radius: 12px;
-    }
-
-    .cert-card p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* CONTACT */
-
-    .contact-box {
-      text-align: center;
-      background: linear-gradient(
-        130deg,
-        rgba(57,135,255,.15),
-        rgba(152,101,255,.10)
-      );
-      border: 1px solid var(--border);
-      padding: 50px 25px;
-      border-radius: 18px;
-    }
-
-    .contact-box p {
-      color: var(--muted);
-      margin: 15px auto 25px;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-      color: #9fc5ff;
-      font-size: 14px;
-    }
-
-    footer {
-      padding: 25px;
-      text-align: center;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      font-size: 12px;
-    }
-
-    /* MOBILE */
-
-    @media(max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-
-      .visual {
-        min-height: 300px;
-      }
-
-      .nav-links {
-        gap: 12px;
-        font-size: 12px;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stat:nth-child(2) {
-        border-right: none;
-      }
-
-      .stat:nth-child(-n+2) {
-        border-bottom: 1px solid var(--border);
-      }
-    }
-
-    @media(max-width: 520px) {
-      .nav-links {
-        gap: 10px;
-      }
-
-      .logo {
-        font-size: 18px;
-      }
-
-      .nav-links li {
-        font-size: 11px;
-      }
-
-      .skills-grid,
-      .projects-grid,
-      .cert-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .section-title h2 {
-        font-size: 29px;
-      }
-
-      .terminal-body {
-        font-size: 11px;
-        padding: 17px;
-      }
+      --bg:#090e1b; --surface:#111a2c; --surface2:#0d1526;
+      --blue:#65a5ff; --blue2:#347de2; --text:#f3f6ff;
+      --muted:#a8b4c9; --border:rgba(255,255,255,.10);
+      --green:#67ddb0; --max:1160px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),90%);margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(9,14,27,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font-weight:850;font-size:1.25rem;letter-spacing:-.7px}.logo span,.accent{color:var(--blue)}
+    .nav-links{display:flex;gap:26px;list-style:none;color:var(--muted);font-size:.9rem}
+    .nav-links a:hover{color:var(--blue)}
+    .menu-toggle{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:8px 11px;border-radius:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:8px;font-weight:700;font-size:.9rem;border:1px solid transparent;transition:.2s}
+    .btn-primary{background:var(--blue2);color:white}.btn-primary:hover{background:#2468c7;transform:translateY(-2px)}
+    .btn-outline{border-color:#53627b;color:var(--text)}.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center;padding:92px 0 78px;min-height:590px}
+    .eyebrow{display:inline-block;color:#a9ceff;background:rgba(101,165,255,.11);border:1px solid rgba(101,165,255,.25);border-radius:30px;padding:6px 13px;font-size:.78rem;margin-bottom:22px}
+    h1{font-size:clamp(2.5rem,5vw,4.2rem);line-height:1.1;letter-spacing:-2px;margin-bottom:22px}
+    .hero p{max-width:650px;color:var(--muted);font-size:1.04rem;margin-bottom:27px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .terminal-wrap{position:relative;display:grid;place-items:center;min-height:340px}
+    .terminal-wrap:before{content:"";position:absolute;width:300px;height:300px;background:radial-gradient(circle,rgba(52,125,226,.3),transparent 68%);filter:blur(12px)}
+    .terminal{position:relative;width:100%;max-width:440px;background:#0c1423;border:1px solid rgba(101,165,255,.35);border-radius:14px;overflow:hidden;box-shadow:0 22px 70px rgba(0,0,0,.28);transform:rotate(-1deg)}
+    .terminal-head{padding:12px 16px;background:#18243a;display:flex;align-items:center;gap:7px;color:#b8c5da;font-size:.75rem}
+    .dot{width:9px;height:9px;border-radius:50%}.red{background:#ff6565}.yellow{background:#ffd166}.green{background:#56d6a3}
+    .terminal-body{padding:22px;font: .82rem/2.05 ui-monospace,SFMono-Regular,Consolas,monospace}
+    .cmd{color:var(--green)}.out{color:#b5c2d7}.ok{color:#7db4ff}
+    .quick-facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:14px;background:var(--surface);margin:0 auto 35px}
+    .fact{text-align:center;padding:22px 12px;border-right:1px solid var(--border)}.fact:last-child{border:0}
+    .fact strong{display:block;color:var(--blue);font-size:1.05rem}.fact span{font-size:.78rem;color:var(--muted)}
+    section{padding:78px 0}
+    .section-head{text-align:center;margin:0 auto 42px;max-width:700px}
+    .section-head h2{font-size:2rem;letter-spacing:-.7px;margin-bottom:8px}
+    .section-head p{color:var(--muted);font-size:.94rem}
+    .panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:30px}
+    .about p{color:var(--muted);margin:0 0 13px}.about p:last-child{margin-bottom:0}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .skill{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px}
+    .skill h3{font-size:1rem;color:#a9ceff;margin-bottom:13px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tags span{font-size:.75rem;color:#c4dcff;background:rgba(101,165,255,.1);border:1px solid rgba(101,165,255,.12);padding:5px 9px;border-radius:5px}
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:24px;display:flex;flex-direction:column;transition:.2s}
+    .project:hover{border-color:rgba(101,165,255,.6);transform:translateY(-3px)}
+    .project-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .project-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:10px;background:rgba(101,165,255,.12);font-size:1.25rem}
+    .project h3{font-size:1.05rem;line-height:1.35}.project p{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+    .project .tags{margin-top:auto}.project-link{display:inline-flex;margin-top:18px;color:var(--blue);font-weight:700;font-size:.85rem}
+    .project-link:hover{text-decoration:underline}
+    .project-note{font-size:.78rem;color:#9eabc1;margin-top:22px;text-align:center}
+    .timeline{max-width:850px;margin:auto}.role{color:#a9ceff;font-weight:750}.muted{color:var(--muted)}
+    .experience ul{padding-left:20px;margin-top:13px;color:var(--muted)}.experience li{margin:7px 0}
+    .cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .cert{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:21px}
+    .cert h3{font-size:1rem;margin-bottom:5px}.cert p{font-size:.85rem;color:var(--muted)}
+    .contact-box{text-align:center;background:linear-gradient(130deg,rgba(52,125,226,.17),rgba(152,101,255,.08));border:1px solid var(--border);border-radius:16px;padding:42px 24px}
+    .contact-box p{max-width:650px;margin:12px auto 22px;color:var(--muted)}
+    .contact-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:22px;color:#a9ceff;font-size:.9rem}
+    footer{text-align:center;border-top:1px solid var(--border);padding:22px;color:var(--muted);font-size:.78rem}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;gap:25px;padding-top:65px}.terminal-wrap{min-height:300px}.skills-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){
+      nav{min-height:64px}.menu-toggle{display:block}.nav-cta{display:none}
+      .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:#0d1526;padding:18px 5%;border-bottom:1px solid var(--border);flex-direction:column;gap:13px}
+      .nav-links.open{display:flex}.hero{padding:55px 0}.quick-facts{grid-template-columns:repeat(2,1fr)}
+      .fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--border)}
+      .skills-grid,.projects-grid,.cert-grid{grid-template-columns:1fr}section{padding:60px 0}
+      h1{font-size:2.65rem}.section-head h2{font-size:1.7rem}.panel{padding:22px}
     }
   </style>
 </head>
-
 <body>
-
-<!-- HEADER -->
 <header>
   <nav class="container">
-    <a href="#home" class="logo">Mahesh<span>.dev</span></a>
-
+    <a class="logo" href="#home">Mahesh<span>.dev</span></a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li><li><a href="#contact">Contact</a></li>
     </ul>
-
-    <a href="#contact" class="btn btn-primary nav-cta">
-      Get in Touch
-    </a>
+    <a class="btn btn-primary nav-cta" href="#contact">Get in touch</a>
   </nav>
 </header>
 
 <main>
-
-<!-- HERO -->
-<div class="container">
-  <section class="hero" id="home">
-
-    <div class="hero-content">
-
-      <div class="badge">
-        AWS Certified Cloud Practitioner
-      </div>
-
-      <h1>
-        Linux System Administration &
-        <span>Infrastructure</span>
-      </h1>
-
-      <p>
-        I am a BCA graduate focused on Linux System Administration,
-        server management and IT infrastructure.
-        I work with RHEL, CentOS, Ubuntu, Bash scripting,
-        Ansible automation, Zabbix monitoring and AWS fundamentals.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">
-          View Projects
-        </a>
-
-        <a href="#contact" class="btn btn-outline">
-          Contact Me
-        </a>
-      </div>
-
-    </div>
-
-    <!-- LINUX TERMINAL VISUAL -->
-    <div class="visual">
-      <div class="glow"></div>
-
-      <div class="terminal">
-        <div class="terminal-header">
-          <div class="dot red"></div>
-          <div class="dot yellow"></div>
-          <div class="dot green"></div>
-          <span style="margin-left:8px">mahesh@linux-server:~</span>
-        </div>
-
-        <div class="terminal-body">
-          <div class="command">$ whoami</div>
-          <div class="output">mahesh</div>
-
-          <div class="command">$ hostnamectl</div>
-          <div class="output">
-            Operating System: Ubuntu Linux<br>
-            Architecture: x86-64
-          </div>
-
-          <div class="command">$ systemctl status sshd</div>
-          <div class="output">
-            <span class="blue">●</span> Active: active (running)
-          </div>
-
-          <div class="command">$ ansible --version</div>
-          <div class="output">ansible [core] installed</div>
-
-          <div class="command">$ echo "Infrastructure Ready"</div>
-          <div class="output">Infrastructure Ready</div>
-
-          <div class="command">$ <span style="animation:blink 1s infinite">_</span></div>
+  <div class="container">
+    <section class="hero" id="home">
+      <div>
+        <span class="eyebrow">AWS Certified Cloud Practitioner · Linux Administration</span>
+        <h1>Linux System Administration &amp; <span class="accent">IT Infrastructure</span></h1>
+        <p>
+          I am a BCA graduate with practical experience in technical operations and L1 troubleshooting.
+          I build hands-on labs in RHEL, CentOS and Ubuntu, covering server administration, storage,
+          networking, Bash automation, Ansible and Zabbix monitoring.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">Explore projects</a>
+          <a class="btn btn-outline" href="Mahesh_Linux_Admin.pdf" target="_blank" rel="noopener">View resume ↗</a>
+          <a class="btn btn-outline" href="mailto:mahesh.arde2002@gmail.com">Email me</a>
         </div>
       </div>
+      <div class="terminal-wrap" aria-label="Linux terminal illustration">
+        <div class="terminal">
+          <div class="terminal-head"><i class="dot red"></i><i class="dot yellow"></i><i class="dot green"></i><span style="margin-left:8px">mahesh@linux-lab:~</span></div>
+          <div class="terminal-body">
+            <div class="cmd">$ whoami</div><div class="out">mahesh</div>
+            <div class="cmd">$ cat /etc/os-release</div><div class="out">Ubuntu / RHEL Linux Lab</div>
+            <div class="cmd">$ systemctl is-active ssh</div><div class="ok">active</div>
+            <div class="cmd">$ lsblk</div><div class="out">NAME  TYPE  MOUNTPOINT</div><div class="out">sda   disk  /</div>
+            <div class="cmd">$ echo "Keep learning. Keep building."</div><div class="ok">Keep learning. Keep building.</div>
+            <div class="cmd">$ <span class="ok">_</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="quick-facts">
+      <div class="fact"><strong>RHEL · Ubuntu</strong><span>Linux administration</span></div>
+      <div class="fact"><strong>Bash · Ansible</strong><span>Automation</span></div>
+      <div class="fact"><strong>Zabbix</strong><span>Monitoring</span></div>
+      <div class="fact"><strong>AWS · Terraform</strong><span>Cloud fundamentals</span></div>
     </div>
+  </div>
 
+  <section id="about">
+    <div class="container">
+      <div class="section-head"><h2>About <span class="accent">Me</span></h2><p>Linux administration, infrastructure support and continuous hands-on learning.</p></div>
+      <div class="panel about">
+        <p>Hello, I’m Mahesh Arde, a BCA graduate from Kirandevi Saraf College, Mumbai. My focus is Linux System Administration and IT infrastructure support.</p>
+        <p>I practise administration across RHEL, CentOS and Ubuntu, including user and group management, permissions, LVM, filesystems, SSH, systemd, firewall configuration, networking and troubleshooting.</p>
+        <p>My project work includes Bash scripting, Ansible automation, Zabbix monitoring, AWS infrastructure and Terraform fundamentals. I have completed RHCSA training; this is training, not an RHCSA certification.</p>
+        <p>I also bring professional experience as a Technical Operations Associate, providing L1 technical support during live examination operations across multiple centres.</p>
+        <p>I am interested in Junior Linux System Administrator, Linux Support Engineer and IT Infrastructure Support opportunities in Mumbai, Navi Mumbai and Thane.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- PROFESSIONAL HIGHLIGHTS -->
-  <div class="stats">
-
-    <div class="stat">
-      <h3>RHEL / Ubuntu</h3>
-      <p>Linux Administration</p>
+  <section id="skills">
+    <div class="container">
+      <div class="section-head"><h2>Technical <span class="accent">Skills</span></h2><p>Tools and technologies used in my learning labs and projects.</p></div>
+      <div class="skills-grid">
+        <article class="skill"><h3>🐧 Linux Administration</h3><div class="tags"><span>RHEL</span><span>CentOS</span><span>Ubuntu</span><span>systemd</span><span>systemctl</span><span>journalctl</span><span>YUM / DNF / APT</span></div></article>
+        <article class="skill"><h3>🗄️ Storage & Access</h3><div class="tags"><span>Users & Groups</span><span>chmod / chown</span><span>ACL</span><span>LVM</span><span>fdisk</span><span>EXT4</span><span>SSH</span><span>SELinux</span></div></article>
+        <article class="skill"><h3>⚙️ Automation & Tools</h3><div class="tags"><span>Bash</span><span>Ansible</span><span>YAML</span><span>Cron</span><span>Git</span><span>GitHub</span><span>Terraform</span></div></article>
+        <article class="skill"><h3>🌐 Networking & Services</h3><div class="tags"><span>TCP/IP</span><span>DNS</span><span>DHCP</span><span>Firewalld</span><span>NFS</span><span>SFTP</span><span>Apache</span><span>Nginx</span></div></article>
+        <article class="skill"><h3>📊 Monitoring & Support</h3><div class="tags"><span>Zabbix</span><span>Grafana fundamentals</span><span>CPU / RAM / Disk</span><span>Log analysis</span><span>L1 troubleshooting</span><span>Incident documentation</span></div></article>
+        <article class="skill"><h3>☁️ Cloud & Virtualisation</h3><div class="tags"><span>AWS EC2</span><span>VPC</span><span>IAM</span><span>S3</span><span>Terraform</span><span>VMware</span></div></article>
+      </div>
     </div>
+  </section>
 
-    <div class="stat">
-      <h3>Bash + Ansible</h3>
-      <p>Automation</p>
+  <section id="projects">
+    <div class="container">
+      <div class="section-head"><h2>Featured <span class="accent">Projects</span></h2><p>Hands-on labs demonstrating Linux administration and infrastructure skills. Open each repository for implementation details and screenshots.</p></div>
+      <div class="projects-grid">
+        <article class="project">
+          <div class="project-top"><div class="project-icon">🐧</div><h3>Linux Bash Automation</h3></div>
+          <p>Shell scripts for system information, file operations, disk usage checks, user management and Linux service status checks.</p>
+          <div class="tags"><span>Linux</span><span>Bash</span><span>Shell scripting</span><span>Automation</span></div>
+          <a class="project-link" href="https://github.com/MaheshArde2002/linux-bash-automation-part-1" target="_blank" rel="noopener">View repository ↗</a>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">📈</div><h3>Zabbix Server & Agent Monitoring</h3></div>
+          <p>Linux monitoring lab using Zabbix Server and Agent to observe host availability and system resource utilisation.</p>
+          <div class="tags"><span>Zabbix</span><span>Linux</span><span>Agent</span><span>Monitoring</span></div>
+          <a class="project-link" href="https://github.com/MaheshArde2002/zabbix-server-agent-monitoring" target="_blank" rel="noopener">View repository ↗</a>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">💾</div><h3>CentOS 7 LVM Storage Management</h3></div>
+          <p>Practised disk partitioning and LVM workflows: physical volumes, volume groups, logical volumes, filesystem creation and mounting.</p>
+          <div class="tags"><span>CentOS 7</span><span>fdisk</span><span>LVM</span><span>EXT4</span></div>
+          <a class="project-link" href="https://github.com/MaheshArde2002/centos7-lvm-storage-management" target="_blank" rel="noopener">View repository ↗</a>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">🔐</div><h3>Linux Permissions Management Lab</h3></div>
+          <p>Practical exercises covering ownership, standard permissions, ACL, SUID, SGID and sticky bit behaviour.</p>
+          <div class="tags"><span>Linux</span><span>chmod</span><span>chown</span><span>ACL</span></div>
+          <a class="project-link" href="https://github.com/MaheshArde2002/linux-permissions-management-lab" target="_blank" rel="noopener">View repository ↗</a>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">🧱</div><h3>Linux Disk Management with fdisk</h3></div>
+          <p>Disk and partition management practice, including inspecting block devices and preparing filesystems for mounting.</p>
+          <div class="tags"><span>Linux</span><span>fdisk</span><span>lsblk</span><span>Filesystems</span></div>
+          <a class="project-link" href="https://github.com/MaheshArde2002/linux-fdisk-disk-management" target="_blank" rel="noopener">View repository ↗</a>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">☁️</div><h3>AWS Secure Web Server</h3></div>
+          <p>Cloud lab deploying an EC2 web server within a VPC and public subnet, using an Internet Gateway and Nginx.</p>
+          <div class="tags"><span>AWS</span><span>EC2</span><span>VPC</span><span>Nginx</span></div>
+          <a class="project-link" href="https://github.com/MaheshArde2002/secure-aws-web-server" target="_blank" rel="noopener">View repository ↗</a>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">🏗️</div><h3>Terraform AWS EC2</h3></div>
+          <p>Infrastructure as Code practice using Terraform configuration to define and provision AWS compute resources.</p>
+          <div class="tags"><span>Terraform</span><span>HCL</span><span>AWS</span><span>EC2</span></div>
+          <a class="project-link" href="https://github.com/MaheshArde2002/terraform-aws-ec2-instance" target="_blank" rel="noopener">View repository ↗</a>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">👤</div><h3>Linux User Management Lab</h3></div>
+          <p>Linux account administration practice covering local users, groups and related account-management commands.</p>
+          <div class="tags"><span>Linux</span><span>useradd</span><span>usermod</span><span>Groups</span></div>
+          <a class="project-link" href="https://github.com/MaheshArde2002/linux-user-management-lab" target="_blank" rel="noopener">View repository ↗</a>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">📡</div><h3>Linux System Monitoring</h3></div>
+          <p>Linux system monitoring practice focused on observing host health and resource usage. See the repository for the exact implementation.</p>
+          <div class="tags"><span>Ubuntu Server</span><span>Linux</span><span>Monitoring</span></div>
+          <a class="project-link" href="https://github.com/MaheshArde2002/linux-system-monitoring" target="_blank" rel="noopener">View repository ↗</a>
+        </article>
+      </div>
+      <p class="project-note">More repositories, including Ansible and other infrastructure labs, can be added after checking the complete GitHub repository list.</p>
     </div>
+  </section>
 
-    <div class="stat">
-      <h3>Zabbix</h3>
-      <p>Server Monitoring</p>
+  <section id="experience">
+    <div class="container">
+      <div class="section-head"><h2>Professional <span class="accent">Experience</span></h2><p>Technical operations and user-facing L1 support experience.</p></div>
+      <div class="panel timeline experience">
+        <div class="role">Technical Operations Associate</div>
+        <div class="muted">A Square Manpower Solutions · Mumbai · Jan 2025 – Feb 2026</div>
+        <ul>
+          <li>Provided L1 technical support and troubleshooting for 300+ candidates across 10 examination centres during live examinations.</li>
+          <li>Assisted with examination software installation, configuration and system-readiness checks.</li>
+          <li>Monitored system connectivity and addressed technical issues to reduce disruption during examination operations.</li>
+          <li>Identified incidents, documented issues and escalated them to the relevant technical teams within defined timelines.</li>
+          <li>Worked with technical teams to support system availability and uninterrupted examination activities.</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-    <div class="stat">
-      <h3>AWS</h3>
-      <p>Cloud Fundamentals</p>
+  <section id="certifications">
+    <div class="container">
+      <div class="section-head"><h2>Certifications &amp; <span class="accent">Training</span></h2><p>Credentials and completed learning programmes.</p></div>
+      <div class="cert-grid">
+        <article class="cert"><h3>☁️ AWS Certified Cloud Practitioner</h3><p>Amazon Web Services · Certification</p></article>
+        <article class="cert"><h3>🐧 RHCSA Training</h3><p>Completed practical Red Hat Enterprise Linux administration training. Not an RHCSA certification.</p></article>
+        <article class="cert"><h3>☁️ AWS Technical Essentials</h3><p>Amazon Web Services · Foundational technical training</p></article>
+        <article class="cert"><h3>🏗️ Terraform Training</h3><p>MindLuster · Beginner Infrastructure as Code training</p></article>
+      </div>
     </div>
+  </section>
 
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>About <span>Me</span></h2>
-      <p>A little introduction about my professional journey</p>
-    </div>
-
-    <div class="about-box">
-      <p>
-        Hello! I am Mahesh Arde, a Bachelor of Computer Applications
-        graduate with a strong interest in Linux System Administration
-        and IT infrastructure.
-      </p>
-
-      <p>
-        I have practical experience working with Linux environments
-        including RHEL, CentOS and Ubuntu. My technical skills include
-        user and permission management, LVM, SSH, networking,
-        service management, system troubleshooting and server monitoring.
-      </p>
-
-      <p>
-        I also work on Bash scripting and Ansible automation to simplify
-        routine administration tasks. I have completed RHCSA training
-        and hold the AWS Certified Cloud Practitioner certification.
-      </p>
-
-      <p>
-        My previous experience as a Technical Operations Associate
-        involved L1 troubleshooting, technical support and handling
-        operational issues across multiple examination centres.
-      </p>
-
-      <p>
-        I am currently looking for opportunities as a Junior Linux
-        System Administrator, Linux Support Engineer or IT
-        Infrastructure Support Engineer in Mumbai.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Technical <span>Skills</span></h2>
-      <p>Technologies and tools I work with</p>
-    </div>
-
-    <div class="skills-grid">
-
-      <div class="skill-card">
-        <h3>🐧 Linux Administration</h3>
-        <div class="tags">
-          <span>RHEL</span>
-          <span>CentOS</span>
-          <span>Ubuntu</span>
-          <span>systemctl</span>
-          <span>journalctl</span>
-          <span>YUM / DNF</span>
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Let’s <span class="accent">Connect</span></h2>
+        <p>I’m interested in Linux System Administrator, Linux Support Engineer and IT Infrastructure Support opportunities across Mumbai, Navi Mumbai and Thane.</p>
+        <a class="btn btn-primary" href="mailto:mahesh.arde2002@gmail.com">Contact me by email</a>
+        <div class="contact-links">
+          <a href="https://github.com/MaheshArde2002" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/mahesh-arde-75b0bb31a/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="tel:+918828552780">+91 88285 52780</a>
+          <a href="mailto:mahesh.arde2002@gmail.com">mahesh.arde2002@gmail.com</a>
         </div>
       </div>
-
-      <div class="skill-card">
-        <h3>⚙️ Server Management</h3>
-        <div class="tags">
-          <span>Users & Groups</span>
-          <span>Permissions</span>
-          <span>LVM</span>
-          <span>SSH</span>
-          <span>Filesystem</span>
-          <span>SELinux</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <h3>🔧 Automation</h3>
-        <div class="tags">
-          <span>Bash Scripting</span>
-          <span>Ansible</span>
-          <span>YAML</span>
-          <span>Cron Jobs</span>
-          <span>Git</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <h3>📡 Networking</h3>
-        <div class="tags">
-          <span>TCP/IP</span>
-          <span>DNS</span>
-          <span>DHCP</span>
-          <span>Firewalld</span>
-          <span>NFS</span>
-          <span>SFTP</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <h3>📊 Monitoring</h3>
-        <div class="tags">
-          <span>Zabbix</span>
-          <span>Grafana</span>
-          <span>CPU Monitoring</span>
-          <span>Disk Monitoring</span>
-          <span>Log Analysis</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <h3>☁️ Cloud & Web</h3>
-        <div class="tags">
-          <span>AWS EC2</span>
-          <span>VPC</span>
-          <span>IAM</span>
-          <span>Nginx</span>
-          <span>Apache</span>
-          <span>Terraform</span>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Featured <span>Projects</span></h2>
-      <p>Practical Linux and infrastructure administration projects</p>
-    </div>
-
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-icon">🐧</div>
-        <h3>Linux Bash Automation</h3>
-        <p>
-          Created Bash scripts for system information,
-          file management, disk monitoring, user management
-          and Linux service checking.
-        </p>
-        <div class="tags">
-          <span>Linux</span>
-          <span>Bash</span>
-          <span>Automation</span>
-        </div>
-        <a class="project-link"
-           href="https://github.com/MaheshArde2002/linux-bash-automation-part-1"
-           target="_blank" rel="noopener">
-          View on GitHub →
-        </a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">📊</div>
-        <h3>Zabbix Server Monitoring</h3>
-        <p>
-          Configured Zabbix server and agent monitoring
-          to observe Linux server performance and
-          infrastructure availability.
-        </p>
-        <div class="tags">
-          <span>Zabbix</span>
-          <span>Linux</span>
-          <span>Monitoring</span>
-        </div>
-        <a class="project-link"
-           href="https://github.com/MaheshArde2002/zabbix-server-agent-monitoring"
-           target="_blank" rel="noopener">
-          View on GitHub →
-        </a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">💾</div>
-        <h3>Linux LVM Storage Management</h3>
-        <p>
-          Practised disk management, partitioning,
-          physical volumes, volume groups, logical volumes
-          and filesystem mounting.
-        </p>
-        <div class="tags">
-          <span>LVM</span>
-          <span>fdisk</span>
-          <span>EXT4</span>
-        </div>
-        <a class="project-link"
-           href="https://github.com/MaheshArde2002/centos7-lvm-storage-management"
-           target="_blank" rel="noopener">
-          View on GitHub →
-        </a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">🤖</div>
-        <h3>Ansible Server Automation</h3>
-        <p>
-          Practised remote server administration using
-          Ansible, SSH, inventory files and playbooks
-          for Nginx installation and service management.
-        </p>
-        <div class="tags">
-          <span>Ansible</span>
-          <span>YAML</span>
-          <span>SSH</span>
-        </div>
-        <a class="project-link"
-           href="https://github.com/MaheshArde2002"
-           target="_blank" rel="noopener">
-          Explore GitHub →
-        </a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">☁️</div>
-        <h3>AWS Web Server Deployment</h3>
-        <p>
-          Built a cloud-based web server environment
-          using AWS VPC, public subnet, Internet Gateway,
-          EC2 and Nginx.
-        </p>
-        <div class="tags">
-          <span>AWS</span>
-          <span>EC2</span>
-          <span>Nginx</span>
-        </div>
-        <a class="project-link"
-           href="https://github.com/MaheshArde2002/secure-aws-web-server"
-           target="_blank" rel="noopener">
-          View on GitHub →
-        </a>
-      </div>
-
-      <div class="project-card">
-        <div class="project-icon">🔐</div>
-        <h3>Linux Permissions Management</h3>
-        <p>
-          Practised Linux file permissions, ownership,
-          ACL, SUID, SGID and sticky bit management
-          through practical administration tasks.
-        </p>
-        <div class="tags">
-          <span>Linux</span>
-          <span>chmod</span>
-          <span>ACL</span>
-        </div>
-        <a class="project-link"
-           href="https://github.com/MaheshArde2002/linux-permissions-management-lab"
-           target="_blank" rel="noopener">
-          View on GitHub →
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Professional <span>Experience</span></h2>
-      <p>My professional background</p>
-    </div>
-
-    <div class="experience-box">
-      <h3>Technical Operations Associate</h3>
-      <p>Asquare / A Square Manpower Solutions</p>
-
-      <ul>
-        <li>Provided L1 technical troubleshooting during live examination operations.</li>
-        <li>Supported 300+ candidates across 10 examination centres.</li>
-        <li>Assisted with technical readiness, software configuration and connectivity checks.</li>
-        <li>Identified operational issues and escalated incidents within required timelines.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Certifications & <span>Training</span></h2>
-      <p>My professional learning journey</p>
-    </div>
-
-    <div class="cert-grid">
-
-      <div class="cert-card">
-        <h3>☁️ AWS Certified Cloud Practitioner</h3>
-        <p>Amazon Web Services</p>
-      </div>
-
-      <div class="cert-card">
-        <h3>🐧 RHCSA Training</h3>
-        <p>Red Hat Enterprise Linux administration training completed. Not a certification.</p>
-      </div>
-
-      <div class="cert-card">
-        <h3>☁️ AWS Technical Essentials</h3>
-        <p>Amazon Web Services training</p>
-      </div>
-
-      <div class="cert-card">
-        <h3>⚙️ Terraform Training</h3>
-        <p>Infrastructure as Code fundamentals</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-
-    <div class="contact-box">
-      <h2>Let's Connect</h2>
-
-      <p>
-        I am looking for opportunities in Linux System Administration,
-        Linux Support Engineering and IT Infrastructure Support
-        in Mumbai. Let's connect!
-      </p>
-
-      <a href="https://www.linkedin.com/in/mahesh-arde-75b0bb31a/"
-         target="_blank" rel="noopener"
-         class="btn btn-primary">
-        Connect on LinkedIn
-      </a>
-
-      <div class="social-links">
-        <a href="https://github.com/MaheshArde2002"
-           target="_blank" rel="noopener">GitHub</a>
-
-        <a href="https://www.linkedin.com/in/mahesh-arde-75b0bb31a/"
-           target="_blank" rel="noopener">LinkedIn</a>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
+  </section>
 </main>
-
-<footer>
-  © 2026 Mahesh Arde. Built with HTML, CSS & JavaScript.
-</footer>
-
-<style>
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-</style>
-
+<footer>© 2026 Mahesh Arde · Built with HTML, CSS and JavaScript</footer>
 <script>
-  // Smooth navigation and active section support
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.querySelectorAll('.nav-links a').forEach(item => {
-        item.style.color = '';
-      });
-
-      link.style.color = '#3987ff';
-    });
+  const toggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
   });
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
 </script>
-
 </body>
 </html>
