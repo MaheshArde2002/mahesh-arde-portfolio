@@ -3,624 +3,598 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
-  <title>Mahesh Arde | Junior Linux System Administrator</title>
-  <meta name="description" content="Portfolio of Mahesh Arde — Junior Linux System Administrator. RHCSA trained, AWS Certified Cloud Practitioner. Projects in Linux, Ansible, Zabbix, AWS EC2 and web hosting.">
-  <meta name="keywords" content="Mahesh Arde, Linux System Administrator, Junior Linux Admin, RHCSA, AWS Certified, Ansible, Zabbix, Linux portfolio, Mumbai Linux admin">
-  <meta name="author" content="Mahesh Arde">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="canonical" href="https://mahesh-arde.github.io/">
-
-  <!-- Open Graph (for WhatsApp / LinkedIn previews) -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Mahesh Arde | Junior Linux System Administrator">
-  <meta property="og:description" content="RHCSA trained, AWS Certified Cloud Practitioner. Hands-on projects in Linux, Ansible, Zabbix and AWS.">
-  <meta property="og:url" content="https://mahesh-arde.github.io/">
-  <meta property="og:site_name" content="Mahesh Arde Portfolio">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Mahesh Arde | Junior Linux System Administrator">
-  <meta name="twitter:description" content="RHCSA trained, AWS Certified Cloud Practitioner. Linux, Ansible, Zabbix and AWS projects.">
-
-  <!-- Structured data (helps Google show your profile) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mahesh Arde",
-    "jobTitle": "Junior Linux System Administrator",
-    "url": "https://mahesh-arde.github.io/",
-    "email": "mahesh.arde2002@gmail.com",
-    "telephone": "+91-8828552780",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Mumbai",
-      "addressRegion": "Maharashtra",
-      "addressCountry": "India"
-    },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "Kirandevi Saraf College, Mumbai"
-    },
-    "knowsAbout": ["Linux Administration", "Ansible", "Zabbix", "AWS", "Bash", "Networking"]
-  }
-  </script>
-
+  <title>Mahesh Arde | Linux System Administrator</title>
+  <meta name="description" content="Mahesh Arde — Junior Linux System Administrator. RHCSA trained, AWS Certified Cloud Practitioner.">
+  
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f7f9fc;
-      --surface-2: #eef3fa;
-      --text: #1f2a37;
-      --muted: #5c6b7f;
-      --blue: #2563eb;
-      --blue-dark: #1e40af;
-      --green: #0f9d58;
-      --border: #e3e9f1;
-      --radius: 12px;
+      --bg: #061616;
+      --surface: rgba(18, 42, 42, 0.4);
+      --text: #ffffff;
+      --muted: #9cb3b3;
+      --accent: #d4c5a9; /* Soft gold/sand */
+      --accent-2: #b4a5d4; /* Soft purple */
+      --green: #4ade80;
+      --border: rgba(255, 255, 255, 0.08);
       --max: 1100px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
+      font-family: var(--font);
+      background-color: var(--bg);
       color: var(--text);
-      line-height: 1.7;
-      font-size: 16px;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      /* Subtle grid background */
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
 
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-    .section { padding: 64px 0; }
-    .section-alt { background: var(--surface); }
-
-    h1, h2, h3 { line-height: 1.3; color: var(--text); }
-    h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
-    h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 8px; }
-    h3 { font-size: 1.05rem; }
-
-    .section-head { margin-bottom: 28px; }
-    .section-head p { color: var(--muted); max-width: 620px; }
-
-    .eyebrow {
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    /* Header */
+    a { color: inherit; text-decoration: none; }
+    
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; position: relative; }
+    
+    /* --- Floating Header --- */
     header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
+      position: fixed; top: 20px; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; padding: 0 20px;
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--text); font-size: 1rem; }
-    .brand-mark {
-      width: 32px; height: 32px; border-radius: 8px;
+    .nav-pill {
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(10, 30, 30, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 8px 8px 20px;
+      width: 100%; max-width: 900px;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: #234033; color: var(--accent);
       display: grid; place-items: center;
-      background: var(--blue); color: #fff; font-size: 0.8rem; font-weight: 800;
+      font-size: 0.85rem; font-weight: 700;
+      border: 1px solid rgba(212, 197, 169, 0.3);
     }
-    .nav-links { display: flex; align-items: center; gap: 22px; }
-    .nav-links a { color: var(--muted); font-size: 0.92rem; font-weight: 500; }
-    .nav-links a:hover { color: var(--text); text-decoration: none; }
-
-    .btn {
-      display: inline-block; padding: 9px 18px; border-radius: 8px;
-      font-weight: 600; font-size: 0.9rem; border: 1px solid transparent;
-      transition: background 0.2s ease; cursor: pointer;
+    .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .brand-name { font-size: 0.9rem; font-weight: 700; }
+    .brand-name::after { content: '●'; color: var(--green); font-size: 0.5rem; margin-left: 4px; vertical-align: middle; }
+    .brand-role { font-size: 0.75rem; color: var(--muted); }
+    
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500; color: var(--muted);
+      padding: 8px 16px; border-radius: 999px;
+      transition: all 0.2s;
     }
-    .btn-primary { background: var(--blue); color: #fff; }
-    .btn-primary:hover { background: var(--blue-dark); text-decoration: none; }
-    .btn-outline { border-color: var(--border); color: var(--text); background: #fff; }
-    .btn-outline:hover { background: var(--surface); text-decoration: none; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { 
+      background: rgba(212, 197, 169, 0.15); 
+      color: var(--accent); 
+      border: 1px solid rgba(212, 197, 169, 0.3);
+    }
+    
+    .nav-actions { display: flex; gap: 8px; align-items: center; }
+    .btn-nav {
+      font-size: 0.85rem; font-weight: 600; padding: 8px 16px;
+      border-radius: 999px; transition: all 0.2s;
+    }
+    .btn-nav-ghost { color: var(--muted); }
+    .btn-nav-ghost:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .btn-nav-primary {
+      background: linear-gradient(135deg, #d4c5a9, #b4a5d4);
+      color: #000; 
+      box-shadow: 0 4px 15px -5px rgba(212, 197, 169, 0.4);
+    }
+    .btn-nav-primary:hover { opacity: 0.9; }
 
-    .menu-toggle {
-      display: none; background: none; border: 1px solid var(--border);
-      color: var(--text); border-radius: 8px; padding: 7px 11px;
-      font-size: 1rem; cursor: pointer;
+    .mobile-toggle {
+      display: none; background: none; border: none; color: var(--text);
+      font-size: 1.2rem; cursor: pointer; padding: 8px;
     }
 
-    /* Hero */
-    .hero { padding: 64px 0 48px; }
-    .hero-inner { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: center; }
-    .hero p.lead { color: var(--muted); font-size: 1rem; margin-top: 14px; max-width: 540px; }
-    .hero-cta { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
-    .hero-stats { display: flex; gap: 28px; margin-top: 32px; flex-wrap: wrap; }
-    .stat b { display: block; font-size: 1.3rem; color: var(--text); }
-    .stat span { font-size: 0.82rem; color: var(--muted); }
+    /* --- Side Dots Navigation --- */
+    .side-nav {
+      position: fixed; right: 30px; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 16px; z-index: 90;
+      background: rgba(10, 30, 30, 0.6); padding: 16px 12px;
+      border-radius: 999px; border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.2); transition: all 0.3s;
+    }
+    .dot.active { background: var(--accent); transform: scale(1.5); }
+    .dot:hover { background: var(--text); }
 
-    .terminal { background: #1e2a3a; border-radius: var(--radius); overflow: hidden; box-shadow: 0 10px 30px -12px rgba(15, 30, 60, 0.25); }
-    .term-bar { display: flex; align-items: center; gap: 6px; padding: 10px 13px; background: #263444; }
-    .dot { width: 9px; height: 9px; border-radius: 50%; }
-    .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
-    .term-title { margin-left: auto; font-size: 0.72rem; color: #9fb0c5; font-family: ui-monospace, monospace; }
-    .term-body { padding: 16px 18px; font-family: ui-monospace, monospace; font-size: 0.8rem; line-height: 1.9; color: #cdd8e6; }
-    .term-body .prompt { color: #67ddb0; }
-    .term-body .cmd { color: #8ab8ff; }
-    .term-body .out { color: #9fb0c5; }
+    /* --- Hero Section --- */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding-top: 120px;
+    }
+    
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      padding: 6px 16px; border-radius: 999px;
+      font-size: 0.85rem; color: var(--muted); margin-bottom: 32px;
+    }
+    .status-badge span.dot-indicator {
+      width: 6px; height: 6px; background: var(--green); border-radius: 50%;
+      box-shadow: 0 0 10px var(--green);
+    }
 
-    /* Skills */
-    .grid { display: grid; gap: 16px; }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700; line-height: 1.1; letter-spacing: -0.03em;
+      margin-bottom: 24px; max-width: 900px;
+    }
+    .hero h1 .gradient-1 {
+      background: linear-gradient(to right, #d4c5a9, #e8dcc4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero h1 .gradient-2 {
+      background: linear-gradient(to right, #b4a5d4, #d4c5a9);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--accent); font-weight: 600;
+      margin-bottom: 24px; font-family: var(--mono);
+    }
+    .hero-subtitle::after {
+      content: '|'; animation: blink 1s step-end infinite; margin-left: 4px; color: var(--muted);
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-desc {
+      font-size: 1.05rem; color: var(--muted); max-width: 650px;
+      margin: 0 auto 40px;
+    }
+    .hero-desc strong { color: var(--text); }
+
+    /* --- Terminal Card --- */
+    .terminal {
+      background: #0a1a1a; border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden; text-align: left;
+      max-width: 600px; width: 100%; margin: 0 auto;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.6);
+    }
+    .term-bar {
+      display: flex; align-items: center; gap: 6px; padding: 12px 16px;
+      background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border);
+    }
+    .term-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .term-dot.r { background: #ff5f57; } .term-dot.y { background: #febc2e; } .term-dot.g { background: #28c840; }
+    .term-title { margin-left: auto; font-size: 0.75rem; color: var(--muted); font-family: var(--mono); }
+    .term-body {
+      padding: 20px; font-family: var(--mono); font-size: 0.85rem; line-height: 1.8; color: #a5b8b8;
+    }
+    .term-body .prompt { color: var(--green); }
+    .term-body .cmd { color: var(--accent); }
+    .term-body .out { color: var(--muted); }
+
+    /* --- Content Blocks --- */
+    .section-head { margin-bottom: 40px; }
+    .section-head h2 { font-size: 2rem; margin-bottom: 8px; }
+    .section-head p { color: var(--muted); }
+
+    .grid { display: grid; gap: 20px; }
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .grid-2 { grid-template-columns: repeat(2, 1fr); }
 
     .card {
-      background: #fff; border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 20px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      transition: transform 0.2s, border-color 0.2s;
     }
+    .card:hover { border-color: rgba(212, 197, 169, 0.4); transform: translateY(-2px); }
     .card-icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      display: grid; place-items: center;
-      background: var(--surface-2); color: var(--blue);
-      font-size: 1rem; margin-bottom: 12px;
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(212, 197, 169, 0.1); color: var(--accent);
+      display: grid; place-items: center; font-size: 1.2rem; margin-bottom: 16px;
     }
-    .card h3 { margin-bottom: 6px; font-size: 0.98rem; }
-    .card p { color: var(--muted); font-size: 0.88rem; }
+    .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 0.9rem; }
 
-    /* Projects — clickable cards */
+    /* Project Cards */
     .project-card {
-      background: #fff; border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 22px;
-      cursor: pointer; text-align: left;
-      transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-      display: flex; flex-direction: column; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px; cursor: pointer;
+      text-align: left; transition: all 0.2s; display: flex; flex-direction: column;
     }
-    .project-card:hover {
-      box-shadow: 0 8px 20px -8px rgba(30, 60, 120, 0.15);
-      transform: translateY(-2px);
-      border-color: var(--blue);
-    }
-    .project-card h3 { font-size: 1rem; }
-    .project-card p { color: var(--muted); font-size: 0.88rem; }
-    .project-card .hint {
-      font-size: 0.8rem; font-weight: 600; color: var(--blue);
-      margin-top: 6px;
-    }
-    .project-card .tags { margin-top: 8px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-card:hover { border-color: rgba(212, 197, 169, 0.5); background: rgba(18, 42, 42, 0.7); }
+    .project-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .project-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+    .project-card .hint { color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-top: auto; }
+    
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
     .tag {
-      font-size: 0.72rem; font-weight: 600;
-      padding: 3px 9px; border-radius: 999px;
-      background: var(--surface-2); color: var(--blue-dark);
+      font-size: 0.75rem; padding: 4px 10px; border-radius: 999px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--muted); font-family: var(--mono);
     }
 
-    /* Modal */
-    .modal-backdrop {
-      position: fixed; inset: 0; z-index: 100;
-      background: rgba(15, 25, 40, 0.55);
-      display: none; align-items: center; justify-content: center;
-      padding: 20px;
+    /* Experience */
+    .timeline { border-left: 2px solid var(--border); padding-left: 24px; margin-left: 12px; }
+    .job { position: relative; margin-bottom: 32px; }
+    .job::before {
+      content: ''; position: absolute; left: -31px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--accent);
     }
-    .modal-backdrop.open { display: flex; }
-    .modal {
-      background: #fff; border-radius: 14px;
-      max-width: 620px; width: 100%;
-      max-height: 90vh; overflow-y: auto;
-      padding: 28px; position: relative;
-      animation: pop 0.18s ease-out;
-    }
-    @keyframes pop {
-      from { transform: translateY(10px); opacity: 0; }
-      to   { transform: translateY(0); opacity: 1; }
-    }
-    .modal-close {
-      position: absolute; top: 12px; right: 12px;
-      background: var(--surface); border: none;
-      width: 32px; height: 32px; border-radius: 50%;
-      font-size: 1.1rem; cursor: pointer; color: var(--muted);
-    }
-    .modal-close:hover { background: var(--surface-2); color: var(--text); }
-    .modal h3 { font-size: 1.25rem; margin-bottom: 6px; padding-right: 32px; }
-    .modal .modal-sub { color: var(--blue); font-weight: 600; font-size: 0.86rem; margin-bottom: 14px; }
-    .modal p { color: var(--muted); font-size: 0.94rem; margin-bottom: 12px; }
-    .modal ul { margin: 0 0 14px 18px; color: var(--muted); font-size: 0.92rem; }
-    .modal li { margin-bottom: 4px; }
-    .modal .tags { margin-bottom: 16px; }
-    .modal .btn { margin-top: 6px; }
+    .job-header { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    .job-header h3 { font-size: 1.1rem; }
+    .job-header .company { color: var(--accent); font-size: 0.9rem; font-weight: 500; }
+    .job-header .period { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+    .job ul { list-style: none; padding: 0; }
+    .job li { color: var(--muted); font-size: 0.9rem; margin-bottom: 6px; padding-left: 16px; position: relative; }
+    .job li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
 
     /* Education */
-    .edu-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
-    .edu-card h3 { font-size: 0.96rem; margin-bottom: 4px; }
-    .edu-card .meta { color: var(--muted); font-size: 0.85rem; }
-    .edu-card .badge {
-      display: inline-block; margin-top: 8px;
-      font-size: 0.72rem; font-weight: 700;
-      padding: 3px 9px; border-radius: 999px;
-      background: #e8f5ee; color: var(--green);
+    .edu-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px;
+    }
+    .edu-card h3 { font-size: 1rem; margin-bottom: 4px; }
+    .edu-card .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 8px; }
+    .badge {
+      font-size: 0.75rem; font-weight: 600; padding: 4px 10px;
+      border-radius: 999px; background: rgba(74, 222, 128, 0.1); color: var(--green);
     }
 
     /* Contact */
-    .contact-card {
-      background: var(--surface-2); border: 1px solid var(--border);
-      border-radius: 16px; padding: 40px 24px; text-align: center;
+    .contact-box {
+      text-align: center; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 24px; padding: 60px 24px;
     }
-    .contact-card h2 { margin-bottom: 10px; }
-    .contact-card p { color: var(--muted); max-width: 520px; margin: 0 auto 22px; }
-    .contact-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .contact-box h2 { font-size: 2rem; margin-bottom: 12px; }
+    .contact-box p { color: var(--muted); margin-bottom: 32px; }
+    .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: 0.9rem;
+      transition: all 0.2s; cursor: pointer; border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--text); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-outline { border-color: var(--border); color: var(--text); background: transparent; }
+    .btn-outline:hover { background: rgba(255,255,255,0.05); }
 
-    /* Footer */
-    footer { border-top: 1px solid var(--border); padding: 22px 0; color: var(--muted); font-size: 0.84rem; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    /* Modal */
+    .modal-backdrop {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(4px); z-index: 200;
+      display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal {
+      background: #0a1a1a; border: 1px solid var(--border);
+      border-radius: 20px; max-width: 600px; width: 100%;
+      max-height: 90vh; overflow-y: auto; padding: 32px; position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      background: rgba(255,255,255,0.1); border: none; color: var(--text);
+      width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+      display: grid; place-items: center;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.2); }
+    .modal h3 { font-size: 1.4rem; margin-bottom: 8px; color: var(--accent); }
+    .modal .modal-sub { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); margin-bottom: 20px; }
+    .modal p { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
+    .modal ul { margin-bottom: 20px; padding-left: 20px; color: var(--muted); font-size: 0.95rem; }
+    .modal li { margin-bottom: 8px; }
+    .modal code { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-family: var(--mono); font-size: 0.85rem; }
 
-    /* Experience */
-    .timeline { padding-left: 24px; position: relative; }
-    .timeline::before {
-      content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px;
-      width: 2px; background: var(--border);
-    }
-    .job { position: relative; padding-bottom: 28px; }
-    .job:last-child { padding-bottom: 0; }
-    .job::before {
-      content: ""; position: absolute; left: -24px; top: 6px;
-      width: 13px; height: 13px; border-radius: 50%;
-      background: #fff; border: 3px solid var(--blue);
-    }
-    .job-top { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; align-items: baseline; }
-    .job .company { color: var(--blue); font-weight: 600; font-size: 0.9rem; }
-    .job .period {
-      font-size: 0.78rem; color: var(--muted);
-      background: var(--surface); padding: 2px 9px; border-radius: 999px; white-space: nowrap;
-    }
-    .job ul { margin-top: 8px; padding-left: 18px; color: var(--muted); font-size: 0.9rem; }
-    .job li { margin-bottom: 5px; }
+    footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
 
     /* Responsive */
     @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
       .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .side-nav { display: none; }
     }
-    @media (max-width: 640px) {
-      .nav-links {
-        position: fixed; inset: 64px 0 auto 0;
-        flex-direction: column; align-items: flex-start;
-        background: #fff; border-bottom: 1px solid var(--border);
-        padding: 16px 20px; gap: 12px; display: none;
-      }
-      .nav-links.open { display: flex; }
-      .menu-toggle { display: block; }
+    @media (max-width: 680px) {
+      .nav-links, .nav-actions { display: none; }
+      .mobile-toggle { display: block; }
       .grid-3, .grid-2 { grid-template-columns: 1fr; }
-      .section { padding: 44px 0; }
-      .hero { padding: 44px 0 36px; }
-      .job-top { flex-direction: column; gap: 4px; }
-      .hero-stats { gap: 20px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+      .hero h1 { font-size: 2.2rem; }
+      .section { padding: 60px 0; }
+      .job-header { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
+<!-- Floating Header -->
 <header>
-  <div class="wrap nav">
-    <a href="#top" class="brand">
-      <span class="brand-mark">MA</span> Mahesh Arde
+  <div class="nav-pill">
+    <a href="#" class="brand">
+      <div class="brand-avatar">MA</div>
+      <div class="brand-text">
+        <span class="brand-name">Mahesh Arde</span>
+        <span class="brand-role">Linux SysAdmin</span>
+      </div>
     </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#skills">Skills</a>
+    <nav class="nav-links">
+      <a href="#overview" class="active">Overview</a>
       <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact" class="btn btn-primary">Contact</a>
+      <a href="#about">About &amp; Experience</a>
     </nav>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="nav-actions">
+      <a href="https://github.com/MaheshArde2002" target="_blank" class="btn-nav btn-nav-ghost">GitHub ↗</a>
+      <a href="#contact" class="btn-nav btn-nav-primary">Resume PDF ↗</a>
+    </div>
+    <button class="mobile-toggle">☰</button>
   </div>
 </header>
 
-<main id="top">
+<!-- Side Navigation Dots -->
+<div class="side-nav">
+  <a href="#overview" class="dot active" title="Overview"></a>
+  <a href="#skills" class="dot" title="Skills"></a>
+  <a href="#projects" class="dot" title="Projects"></a>
+  <a href="#experience" class="dot" title="Experience"></a>
+</div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="wrap hero-inner">
-      <div>
-        <p class="eyebrow">Junior Linux System Administrator</p>
-        <h1>Hi, I'm Mahesh. I keep Linux servers running smoothly.</h1>
-        <p class="lead">
-          BCA graduate (2026), AWS Certified Cloud Practitioner, and RHCSA trained.
-          I have hands-on lab experience with RHEL, CentOS and Ubuntu, and I'm
-          looking for a Junior Linux Admin or Linux Support role.
-        </p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Hire me</a>
-          <a href="#projects" class="btn btn-outline">View projects</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat"><b>3 months</b><span>L1 support experience</span></div>
-          <div class="stat"><b>5+</b><span>Linux &amp; AWS projects</span></div>
-          <div class="stat"><b>2</b><span>AWS certifications</span></div>
-        </div>
+<main>
+  <!-- Hero Section -->
+  <section class="hero wrap" id="overview">
+    <div class="status-badge">
+      <span class="dot-indicator"></span>
+      Junior Linux System Administrator · Cloud &amp; DevOps
+    </div>
+    
+    <h1>
+      Building <span class="gradient-1">Reliable Systems</span> through<br>
+      <span class="gradient-2">Linux Administration &amp; Automation.</span>
+    </h1>
+    
+    <div class="hero-subtitle">AWS Certified Cloud Practitioner · RHCSA Trained</div>
+    
+    <p class="hero-desc">
+      Hi, I'm <strong>Mahesh Arde</strong>. BCA Graduate from Kirandevi Saraf College.
+      I manage Linux servers, write Ansible playbooks, configure LVM storage, and monitor infrastructure with Zabbix.
+    </p>
+
+    <div class="terminal">
+      <div class="term-bar">
+        <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+        <span class="term-title">mahesh@ubuntu-ec2:~</span>
       </div>
-
-      <div class="terminal" aria-hidden="true">
-        <div class="term-bar">
-          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-          <span class="term-title">mahesh@ubuntu-ec2:~</span>
-        </div>
-        <div class="term-body">
-          <div><span class="prompt">$</span> <span class="cmd">whoami</span></div>
-          <div class="out">mahesh — junior linux sysadmin</div>
-          <div><span class="prompt">$</span> <span class="cmd">ansible all -m ping</span></div>
-          <div class="out">ubuntu-1 | SUCCESS => ping: pong</div>
-          <div class="out">ubuntu-2 | SUCCESS => ping: pong</div>
-          <div><span class="prompt">$</span> <span class="cmd">systemctl is-active nginx</span></div>
-          <div class="out">active</div>
-        </div>
+      <div class="term-body">
+        <div><span class="prompt">$</span> <span class="cmd">whoami</span></div>
+        <div class="out">mahesh — junior linux sysadmin</div>
+        <div><span class="prompt">$</span> <span class="cmd">ansible all -m ping</span></div>
+        <div class="out">ubuntu-1 | SUCCESS => ping: pong</div>
+        <div class="out">ubuntu-2 | SUCCESS => ping: pong</div>
+        <div><span class="prompt">$</span> <span class="cmd">systemctl is-active nginx</span></div>
+        <div class="out">active</div>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section class="section section-alt" id="skills">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Skills</p>
-        <h2>What I can do</h2>
+  <!-- Skills Section -->
+  <section class="section wrap" id="skills">
+    <div class="section-head">
+      <h2>Technical Matrix</h2>
+      <p>Practical Linux skills built through labs, projects and real field support work.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-icon">🐧</div>
+        <h3>Linux Administration</h3>
+        <p>systemd, journalctl, boot process, GRUB, YUM/DNF/APT packages.</p>
       </div>
-
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="card-icon">🐧</div>
-          <h3>Linux Administration</h3>
-          <p>systemd, journalctl, boot process, GRUB, YUM/DNF/APT packages.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🔐</div>
-          <h3>Users &amp; Permissions</h3>
-          <p>Users, groups, chmod, chown, sudoers, ACLs, SUID/SGID/Sticky Bit.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">💾</div>
-          <h3>Storage &amp; Filesystems</h3>
-          <p>fdisk, partitions, fstab, LVM (PV/VG/LV), df/du/lsblk, rsync.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">⚙️</div>
-          <h3>Automation</h3>
-          <p>Bash scripting and Ansible playbooks with reusable roles and handlers.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📊</div>
-          <h3>Monitoring</h3>
-          <p>Zabbix 7.0 Server &amp; Agent, MySQL backend, host templates.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">☁️</div>
-          <h3>AWS Cloud</h3>
-          <p>EC2, VPC, Security Groups, IAM, EBS, S3 backups.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🌐</div>
-          <h3>Networking</h3>
-          <p>TCP/IP, DNS, SSH, UFW, firewalld, Apache &amp; Nginx with SSL/TLS.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📁</div>
-          <h3>File Sharing</h3>
-          <p>NFS server/client with exports, Samba sharing with Windows.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🖥️</div>
-          <h3>L1 Support</h3>
-          <p>On-site support, readiness checks, incident escalation.</p>
-        </div>
+      <div class="card">
+        <div class="card-icon">🔐</div>
+        <h3>Users &amp; Permissions</h3>
+        <p>Users, groups, chmod, chown, sudoers, ACLs, SUID/SGID/Sticky Bit.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💾</div>
+        <h3>Storage &amp; Filesystems</h3>
+        <p>fdisk, partitions, fstab, LVM (PV/VG/LV), df/du/lsblk, rsync.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <h3>Automation</h3>
+        <p>Bash scripting and Ansible playbooks with reusable roles and handlers.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Monitoring</h3>
+        <p>Zabbix 7.0 Server &amp; Agent, MySQL backend, host templates.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">☁️</div>
+        <h3>AWS Cloud</h3>
+        <p>EC2, VPC, Security Groups, IAM, EBS, S3 backups.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Networking</h3>
+        <p>TCP/IP, DNS, SSH, UFW, firewalld, Apache &amp; Nginx with SSL/TLS.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📁</div>
+        <h3>File Sharing</h3>
+        <p>NFS server/client with exports, Samba sharing with Windows.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🖥️</div>
+        <h3>L1 Support</h3>
+        <p>On-site support, readiness checks, incident escalation.</p>
       </div>
     </div>
   </section>
 
-  <!-- Projects (click to open modal) -->
-  <section class="section" id="projects">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Projects</p>
-        <h2>What I've built</h2>
-        <p>Click any project to see the full details.</p>
-      </div>
+  <!-- Projects Section -->
+  <section class="section wrap" id="projects">
+    <div class="section-head">
+      <h2>Featured Architectures</h2>
+      <p>Click any project to see the full details.</p>
+    </div>
+    <div class="grid grid-2">
+      <button class="project-card" data-project="ansible">
+        <h3>Linux Server Automation Using Ansible</h3>
+        <p>Manage 2 Ubuntu servers on AWS from one control node using playbooks.</p>
+        <div class="tags"><span class="tag">Ansible</span><span class="tag">AWS EC2</span><span class="tag">Ubuntu</span></div>
+        <span class="hint">Click for details →</span>
+      </button>
+      <button class="project-card" data-project="aws-web">
+        <h3>Secure Web Server on AWS EC2</h3>
+        <p>Custom VPC, EC2, Security Groups, IAM and Nginx hosting.</p>
+        <div class="tags"><span class="tag">AWS</span><span class="tag">VPC</span><span class="tag">Nginx</span></div>
+        <span class="hint">Click for details →</span>
+      </button>
+      <button class="project-card" data-project="zabbix">
+        <h3>Zabbix 7.0 Monitoring Lab</h3>
+        <p>Zabbix Server + Agent monitoring with MySQL and dashboards.</p>
+        <div class="tags"><span class="tag">Zabbix</span><span class="tag">MySQL</span><span class="tag">Apache2</span></div>
+        <span class="hint">Click for details →</span>
+      </button>
+      <button class="project-card" data-project="storage">
+        <h3>Linux Storage &amp; File Sharing</h3>
+        <p>LVM, NFS and Samba configuration on Linux.</p>
+        <div class="tags"><span class="tag">LVM</span><span class="tag">NFS</span><span class="tag">Samba</span></div>
+        <span class="hint">Click for details →</span>
+      </button>
+    </div>
+  </section>
 
-      <div class="grid grid-2">
-
-        <button class="project-card" data-project="ansible">
-          <h3>Linux Server Automation Using Ansible</h3>
-          <p>Manage 2 Ubuntu servers on AWS from one control node using playbooks.</p>
-          <div class="tags">
-            <span class="tag">Ansible</span><span class="tag">AWS EC2</span><span class="tag">Ubuntu</span>
+  <!-- Experience Section -->
+  <section class="section wrap" id="experience">
+    <div class="section-head">
+      <h2>Enterprise Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <h3>Technical Operations Associate</h3>
+            <span class="company">A Square Manpower Solutions</span>
           </div>
-          <span class="hint">Click for details →</span>
-        </button>
-
-        <button class="project-card" data-project="aws-web">
-          <h3>Secure Web Server on AWS EC2</h3>
-          <p>Custom VPC, EC2, Security Groups, IAM and Nginx hosting.</p>
-          <div class="tags">
-            <span class="tag">AWS</span><span class="tag">VPC</span><span class="tag">Nginx</span>
-          </div>
-          <span class="hint">Click for details →</span>
-        </button>
-
-        <button class="project-card" data-project="zabbix">
-          <h3>Zabbix 7.0 Monitoring Lab</h3>
-          <p>Zabbix Server + Agent monitoring with MySQL and dashboards.</p>
-          <div class="tags">
-            <span class="tag">Zabbix</span><span class="tag">MySQL</span><span class="tag">Apache2</span>
-          </div>
-          <span class="hint">Click for details →</span>
-        </button>
-
-        <button class="project-card" data-project="storage">
-          <h3>Linux Storage &amp; File Sharing</h3>
-          <p>LVM, NFS and Samba configuration on Linux.</p>
-          <div class="tags">
-            <span class="tag">LVM</span><span class="tag">NFS</span><span class="tag">Samba</span>
-          </div>
-          <span class="hint">Click for details →</span>
-        </button>
-
-        <button class="project-card" data-project="apache">
-          <h3>Apache Web Hosting with SSL/TLS</h3>
-          <p>Virtual Hosts and HTTPS on CentOS 8 with firewalld.</p>
-          <div class="tags">
-            <span class="tag">Apache</span><span class="tag">SSL/TLS</span><span class="tag">CentOS 8</span>
-          </div>
-          <span class="hint">Click for details →</span>
-        </button>
-
-        <a href="https://github.com/MaheshArde2002" target="_blank" rel="noopener" class="project-card" style="text-decoration:none;">
-          <h3>More on GitHub</h3>
-          <p>Browse all my labs, documentation and screenshots.</p>
-          <div class="tags"><span class="tag">GitHub</span><span class="tag">Documentation</span></div>
-          <span class="hint">Open GitHub →</span>
-        </a>
-
+          <span class="period">Dec 2025 – Feb 2026</span>
+        </div>
+        <ul>
+          <li>Provided on-site L1 support for 300+ candidates across 10 exam centres during live exams.</li>
+          <li>Installed and configured exam software and ran system readiness checks.</li>
+          <li>Handled basic TCP/IP, DNS and LAN troubleshooting during sessions.</li>
+          <li>Investigated issues to minimise disruption and escalated on time.</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section class="section section-alt" id="experience">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Experience</p>
-        <h2>Where I've worked</h2>
+  <!-- Education Section -->
+  <section class="section wrap" id="about">
+    <div class="section-head">
+      <h2>Academic Honors &amp; Certifications</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="edu-card">
+        <h3>Bachelor of Computer Applications (BCA)</h3>
+        <p class="meta">Kirandevi Saraf College · 2026</p>
+        <p class="meta">CGPA 7.70 / 10</p>
+        <span class="badge">Graduated</span>
       </div>
-      <div class="timeline">
-        <article class="job">
-          <div class="job-top">
-            <div>
-              <h3>Technical Operations Associate</h3>
-              <span class="company">A Square Manpower Solutions · Digital Examination Systems</span>
-            </div>
-            <span class="period">Dec 2025 – Feb 2026</span>
-          </div>
-          <ul>
-            <li>Provided on-site L1 support for 300+ candidates across 10 exam centres during live exams.</li>
-            <li>Installed and configured exam software and ran system readiness checks.</li>
-            <li>Handled basic TCP/IP, DNS and LAN troubleshooting during sessions.</li>
-            <li>Investigated issues to minimise disruption and escalated on time.</li>
-          </ul>
-        </article>
+      <div class="edu-card">
+        <h3>AWS Certified Cloud Practitioner</h3>
+        <p class="meta">Amazon Web Services</p>
+        <span class="badge">Certified</span>
+      </div>
+      <div class="edu-card">
+        <h3>RHCSA Training</h3>
+        <p class="meta">Red Hat Certified System Administrator</p>
+        <span class="badge">Completed</span>
       </div>
     </div>
   </section>
 
-  <!-- Education -->
-  <section class="section" id="education">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Education &amp; Certifications</p>
-        <h2>My background</h2>
-      </div>
-      <div class="grid grid-3">
-        <div class="edu-card">
-          <h3>BCA</h3>
-          <p class="meta">Kirandevi Saraf College · 2026</p>
-          <p class="meta">CGPA 7.70 / 10</p>
-          <span class="badge">Graduated</span>
-        </div>
-        <div class="edu-card">
-          <h3>AWS Certified Cloud Practitioner</h3>
-          <p class="meta">Amazon Web Services</p>
-          <span class="badge">Certified</span>
-        </div>
-        <div class="edu-card">
-          <h3>AWS Technical Essentials</h3>
-          <p class="meta">EC2, S3, VPC, IAM, RDS</p>
-          <span class="badge">Completed</span>
-        </div>
-        <div class="edu-card">
-          <h3>RHCSA Training</h3>
-          <p class="meta">Red Hat Certified System Administrator</p>
-          <span class="badge">Completed</span>
-        </div>
-        <div class="edu-card">
-          <h3>HSC</h3>
-          <p class="meta">Maharashtra Board · 74.83%</p>
-          <span class="badge">Completed</span>
-        </div>
-        <div class="edu-card">
-          <h3>SSC</h3>
-          <p class="meta">Maharashtra Board · 73%</p>
-          <span class="badge">Completed</span>
-        </div>
+  <!-- Contact Section -->
+  <section class="section wrap" id="contact">
+    <div class="contact-box">
+      <h2>Let's build something reliable.</h2>
+      <p>I'm open to Junior Linux System Administrator and Linux Support Engineer roles.</p>
+      <div class="contact-links">
+        <a href="mailto:mahesh.arde2002@gmail.com" class="btn btn-primary">Email me</a>
+        <a href="tel:+918828552780" class="btn btn-outline">Call +91 88285 52780</a>
+        <a href="https://linkedin.com/in/GitHub" target="_blank" class="btn btn-outline">LinkedIn</a>
+        <a href="https://github.com/MaheshArde2002" target="_blank" class="btn btn-outline">GitHub</a>
       </div>
     </div>
   </section>
-
-  <!-- Contact -->
-  <section class="section section-alt" id="contact">
-    <div class="wrap">
-      <div class="contact-card">
-        <p class="eyebrow">Contact</p>
-        <h2>Looking for a Junior Linux Admin?</h2>
-        <p>I'm open to Junior Linux System Administrator and Linux Support Engineer roles.</p>
-        <div class="contact-links">
-          <a href="mailto:mahesh.arde2002@gmail.com" class="btn btn-primary">Email me</a>
-          <a href="tel:+918828552780" class="btn btn-outline">Call +91 88285 52780</a>
-          <a href="https://www.linkedin.com/in/mahesh-arde-75b0bb31a/" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/MaheshArde2002" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </main>
 
-<footer>
-  <div class="wrap footer-inner">
-    <span>© <span id="year"></span> Mahesh Arde · Mumbai, Maharashtra</span>
-    <span>BCA 2026 · AWS Certified · RHCSA trained</span>
-  </div>
+<footer class="wrap">
+  <p>© <span id="year"></span> Mahesh Arde. Built with Linux &amp; clean code.</p>
 </footer>
 
-<!-- Project modal -->
-<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal" id="modalContent">
-    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+<!-- Modal -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
     <h3 id="modalTitle"></h3>
     <p class="modal-sub" id="modalSub"></p>
     <div id="modalBody"></div>
     <div class="tags" id="modalTags"></div>
-    <a class="btn btn-primary" id="modalLink" target="_blank" rel="noopener">View on GitHub</a>
+    <a class="btn btn-primary" id="modalLink" target="_blank" style="display:inline-block; margin-top:16px;">View on GitHub</a>
   </div>
 </div>
 
 <script>
-  // --- Mobile nav ---
-  const toggle = document.getElementById('menuToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
+  // --- Navigation & Scroll Spy ---
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const dots = document.querySelectorAll('.dot');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (scrollY >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+
+    dots.forEach(dot => {
+      dot.classList.remove('active');
+      if (dot.getAttribute('href') === `#${current}`) {
+        dot.classList.add('active');
+      }
+    });
   });
-  links.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    })
-  );
 
   // --- Year ---
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // --- Project modal data ---
+  // --- Project Modal Data ---
   const projects = {
     ansible: {
       title: 'Linux Server Automation Using Ansible',
       sub: 'Ansible · AWS EC2 · Ubuntu',
-      body: `
-        <p>Automated Linux administration across <strong>2 Ubuntu EC2 servers</strong> from a single Ansible control node using SSH key-based authentication and an inventory file.</p>
+      body: `<p>Automated Linux administration across <strong>2 Ubuntu EC2 servers</strong> from a single Ansible control node using SSH key-based authentication and an inventory file.</p>
         <ul>
           <li>Wrote YAML playbooks to manage users, groups and permissions.</li>
           <li>Installed Nginx and Apache2 with a custom web page.</li>
@@ -634,8 +608,7 @@
     'aws-web': {
       title: 'Secure Web Server on AWS EC2',
       sub: 'AWS · VPC · Nginx',
-      body: `
-        <p>Built a secure web server on AWS from scratch with a custom network setup.</p>
+      body: `<p>Built a secure web server on AWS from scratch with a custom network setup.</p>
         <ul>
           <li>Created a custom VPC with a public subnet, Internet Gateway and route table.</li>
           <li>Launched an Ubuntu EC2 instance accessed over SSH.</li>
@@ -649,8 +622,7 @@
     zabbix: {
       title: 'Zabbix 7.0 Server & Agent Monitoring Lab',
       sub: 'Zabbix · MySQL · Apache2',
-      body: `
-        <p>Set up end-to-end server monitoring using Zabbix 7.0.</p>
+      body: `<p>Set up end-to-end server monitoring using Zabbix 7.0.</p>
         <ul>
           <li>Installed Zabbix Server with MySQL database and Apache2 web frontend.</li>
           <li>Configured database user, schema and server settings.</li>
@@ -664,8 +636,7 @@
     storage: {
       title: 'Linux Storage Management & File Sharing',
       sub: 'LVM · NFS · Samba',
-      body: `
-        <p>Hands-on lab covering storage provisioning and cross-platform file sharing.</p>
+      body: `<p>Hands-on lab covering storage provisioning and cross-platform file sharing.</p>
         <ul>
           <li>Partitioned a new disk with <code>fdisk</code> and built an LVM stack (PV, VG, LV).</li>
           <li>Mounted persistently using <code>/etc/fstab</code> and tested with <code>mount -a</code>.</li>
@@ -674,20 +645,6 @@
         </ul>`,
       tags: ['LVM', 'NFS', 'Samba', 'fdisk'],
       link: null
-    },
-    apache: {
-      title: 'Apache Web Hosting with SSL/TLS',
-      sub: 'Apache · CentOS 8 · SSL/TLS',
-      body: `
-        <p>Configured a secure Apache web server on CentOS 8.</p>
-        <ul>
-          <li>Set up Apache Virtual Hosts for multiple sites.</li>
-          <li>Enabled HTTPS using a self-signed SSL/TLS certificate.</li>
-          <li>Configured firewalld rules for web traffic.</li>
-          <li>Documented troubleshooting steps for each issue encountered.</li>
-        </ul>`,
-      tags: ['Apache', 'CentOS 8', 'SSL/TLS', 'firewalld'],
-      link: 'https://github.com/MaheshArde2002/linux-apache-ssl-web-hosting-lab'
     }
   };
 
@@ -706,32 +663,22 @@
     modalSub.textContent = p.sub;
     modalBody.innerHTML = p.body;
     modalTags.innerHTML = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
-    if (p.link) {
-      modalLink.style.display = 'inline-block';
-      modalLink.href = p.link;
-    } else {
-      modalLink.style.display = 'none';
-    }
+    if (p.link) { modalLink.style.display = 'inline-block'; modalLink.href = p.link; }
+    else { modalLink.style.display = 'none'; }
     backdrop.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
   function closeModal() {
     backdrop.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.project-card[data-project]').forEach(card => {
+  document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('click', () => openModal(card.dataset.project));
   });
-
   modalClose.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', e => {
-    if (e.target === backdrop) closeModal();
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
-  });
+  backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>
