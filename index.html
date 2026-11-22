@@ -3,189 +3,303 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mahesh Arde — Junior Linux System Administrator portfolio. RHCSA trained, AWS Certified Cloud Practitioner with hands-on RHEL, Ansible, Zabbix and AWS EC2 projects.">
-  <meta name="theme-color" content="#0b1020">
+
+  <!-- SEO -->
   <title>Mahesh Arde | Junior Linux System Administrator</title>
+  <meta name="description" content="Portfolio of Mahesh Arde — Junior Linux System Administrator. RHCSA trained, AWS Certified Cloud Practitioner. Projects in Linux, Ansible, Zabbix, AWS EC2 and web hosting.">
+  <meta name="keywords" content="Mahesh Arde, Linux System Administrator, Junior Linux Admin, RHCSA, AWS Certified, Ansible, Zabbix, Linux portfolio, Mumbai Linux admin">
+  <meta name="author" content="Mahesh Arde">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://mahesh-arde.github.io/">
+
+  <!-- Open Graph (for WhatsApp / LinkedIn previews) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mahesh Arde | Junior Linux System Administrator">
+  <meta property="og:description" content="RHCSA trained, AWS Certified Cloud Practitioner. Hands-on projects in Linux, Ansible, Zabbix and AWS.">
+  <meta property="og:url" content="https://mahesh-arde.github.io/">
+  <meta property="og:site_name" content="Mahesh Arde Portfolio">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mahesh Arde | Junior Linux System Administrator">
+  <meta name="twitter:description" content="RHCSA trained, AWS Certified Cloud Practitioner. Linux, Ansible, Zabbix and AWS projects.">
+
+  <!-- Structured data (helps Google show your profile) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mahesh Arde",
+    "jobTitle": "Junior Linux System Administrator",
+    "url": "https://mahesh-arde.github.io/",
+    "email": "mahesh.arde2002@gmail.com",
+    "telephone": "+91-8828552780",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mumbai",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "India"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Kirandevi Saraf College, Mumbai"
+    },
+    "knowsAbout": ["Linux Administration", "Ansible", "Zabbix", "AWS", "Bash", "Networking"]
+  }
+  </script>
+
   <style>
     :root {
-      --bg:#090e1b; --surface:#111a2c; --surface2:#0d1526;
-      --blue:#65a5ff; --blue2:#347de2; --text:#f3f6ff;
-      --muted:#a8b4c9; --border:rgba(255,255,255,.10);
-      --green:#67ddb0; --max:1160px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-padding-top:90px}
-    body{
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-      background:var(--bg); color:var(--text); line-height:1.65;
-      -webkit-font-smoothing:antialiased;
-    }
-    a{color:var(--blue); text-decoration:none}
-    a:hover{color:var(--blue2)}
-    img{max-width:100%; display:block}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
-    .section{padding:88px 0}
-    .section-head{margin-bottom:40px}
-    .eyebrow{
-      font-size:.8rem; letter-spacing:.14em; text-transform:uppercase;
-      color:var(--green); font-weight:600; margin-bottom:8px;
-    }
-    h1,h2,h3{line-height:1.2; letter-spacing:-.02em}
-    h2{font-size:clamp(1.7rem,4vw,2.4rem); margin-bottom:12px}
-    .lead{color:var(--muted); max-width:640px}
-
-    /* ---------- Header ---------- */
-    header{
-      position:sticky; top:0; z-index:50;
-      background:rgba(9,14,27,.82);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--border);
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; height:72px}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700; color:var(--text)}
-    .brand-mark{
-      width:34px; height:34px; border-radius:9px; display:grid; place-items:center;
-      background:linear-gradient(135deg,var(--blue),var(--blue2));
-      color:#04101f; font-size:.9rem; font-weight:800;
-    }
-    .nav-links{display:flex; gap:26px; align-items:center}
-    .nav-links a{color:var(--muted); font-size:.94rem; font-weight:500}
-    .nav-links a:hover{color:var(--text)}
-    .btn{
-      display:inline-block; padding:11px 20px; border-radius:10px;
-      font-weight:600; font-size:.94rem; border:1px solid transparent;
-      transition:transform .15s ease, background .2s ease;
-    }
-    .btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue2)); color:#04101f}
-    .btn-primary:hover{transform:translateY(-2px); color:#04101f}
-    .btn-ghost{border-color:var(--border); color:var(--text)}
-    .btn-ghost:hover{background:var(--surface)}
-    .menu-toggle{display:none; background:none; border:1px solid var(--border);
-      color:var(--text); border-radius:8px; padding:8px 12px; cursor:pointer; font-size:1rem}
-
-    /* ---------- Hero ---------- */
-    .hero{position:relative; overflow:hidden; padding:96px 0 80px}
-    .hero::before{
-      content:""; position:absolute; inset:-30% -10% auto -10%; height:600px;
-      background:radial-gradient(ellipse at 30% 0%, rgba(101,165,255,.22), transparent 60%),
-                 radial-gradient(ellipse at 80% 20%, rgba(103,221,176,.12), transparent 55%);
-      pointer-events:none;
-    }
-    .hero-inner{position:relative; display:grid; grid-template-columns:1.35fr .9fr; gap:56px; align-items:center}
-    .hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem); margin:14px 0 18px}
-    .hero h1 span{
-      background:linear-gradient(135deg,var(--blue),var(--green));
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    .hero p{color:var(--muted); font-size:1.08rem; max-width:560px}
-    .hero-cta{display:flex; gap:14px; margin-top:30px; flex-wrap:wrap}
-    .hero-stats{display:flex; gap:36px; margin-top:44px; flex-wrap:wrap}
-    .stat b{display:block; font-size:1.5rem; color:var(--text)}
-    .stat span{font-size:.85rem; color:var(--muted)}
-
-    /* Terminal card */
-    .terminal{
-      background:var(--surface2); border:1px solid var(--border); border-radius:14px;
-      overflow:hidden; box-shadow:0 24px 60px -24px rgba(0,0,0,.7);
-    }
-    .term-bar{display:flex; align-items:center; gap:7px; padding:12px 14px;
-      background:rgba(255,255,255,.03); border-bottom:1px solid var(--border)}
-    .dot{width:11px; height:11px; border-radius:50%}
-    .dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
-    .term-title{margin-left:auto; font-size:.78rem; color:var(--muted); font-family:ui-monospace,monospace}
-    .term-body{padding:20px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-      font-size:.86rem; line-height:1.85; color:#cdd8ec}
-    .term-body .prompt{color:var(--green)}
-    .term-body .cmd{color:var(--blue)}
-    .term-body .out{color:var(--muted)}
-    .cursor{display:inline-block; width:8px; height:15px; background:var(--green);
-      vertical-align:-2px; animation:blink 1.1s steps(1) infinite}
-    @keyframes blink{50%{opacity:0}}
-
-    /* ---------- Skills ---------- */
-    .grid{display:grid; gap:20px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .card{
-      background:var(--surface); border:1px solid var(--border); border-radius:14px;
-      padding:26px; transition:transform .2s ease, border-color .2s ease;
-    }
-    .card:hover{transform:translateY(-4px); border-color:rgba(101,165,255,.4)}
-    .card h3{font-size:1.06rem; margin-bottom:10px}
-    .card p{color:var(--muted); font-size:.93rem}
-    .card-icon{
-      width:42px; height:42px; border-radius:10px; display:grid; place-items:center;
-      background:rgba(101,165,255,.12); color:var(--blue); font-size:1.15rem; margin-bottom:16px;
-    }
-    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
-    .tag{
-      font-size:.76rem; font-weight:600; padding:5px 11px; border-radius:999px;
-      background:rgba(255,255,255,.06); color:var(--muted); border:1px solid var(--border);
+      --bg: #ffffff;
+      --surface: #f7f9fc;
+      --surface-2: #eef3fa;
+      --text: #1f2a37;
+      --muted: #5c6b7f;
+      --blue: #2563eb;
+      --blue-dark: #1e40af;
+      --green: #0f9d58;
+      --border: #e3e9f1;
+      --radius: 12px;
+      --max: 1100px;
     }
 
-    /* ---------- Experience timeline ---------- */
-    .timeline{position:relative; padding-left:30px}
-    .timeline::before{
-      content:""; position:absolute; left:7px; top:6px; bottom:6px; width:2px;
-      background:linear-gradient(var(--blue),transparent);
-    }
-    .job{position:relative; padding-bottom:38px}
-    .job:last-child{padding-bottom:0}
-    .job::before{
-      content:""; position:absolute; left:-30px; top:6px; width:16px; height:16px;
-      border-radius:50%; background:var(--surface); border:3px solid var(--blue);
-    }
-    .job-top{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:baseline}
-    .job h3{font-size:1.08rem}
-    .job .company{color:var(--blue); font-weight:600; font-size:.94rem}
-    .job .period{color:var(--muted); font-size:.82rem; white-space:nowrap;
-      background:rgba(255,255,255,.05); padding:3px 10px; border-radius:999px}
-    .job ul{margin-top:12px; padding-left:18px; color:var(--muted); font-size:.93rem}
-    .job li{margin-bottom:6px}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
-    /* ---------- Projects ---------- */
-    .project{
-      background:var(--surface2); border:1px solid var(--border); border-radius:14px;
-      padding:26px; display:flex; flex-direction:column; gap:12px;
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
     }
-    .project:hover{border-color:rgba(103,221,176,.4)}
-    .project h3{font-size:1.05rem}
-    .project p{color:var(--muted); font-size:.92rem}
-    .project .tags{margin-top:auto}
-    .project-link{font-size:.88rem; font-weight:600; margin-top:6px}
 
-    /* ---------- Contact ---------- */
-    .contact-card{
-      background:linear-gradient(135deg, rgba(101,165,255,.14), rgba(103,221,176,.08));
-      border:1px solid var(--border); border-radius:18px; padding:52px 36px; text-align:center;
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .section { padding: 64px 0; }
+    .section-alt { background: var(--surface); }
+
+    h1, h2, h3 { line-height: 1.3; color: var(--text); }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 8px; }
+    h3 { font-size: 1.05rem; }
+
+    .section-head { margin-bottom: 28px; }
+    .section-head p { color: var(--muted); max-width: 620px; }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 6px;
     }
-    .contact-card h2{margin-bottom:12px}
-    .contact-card p{color:var(--muted); max-width:520px; margin:0 auto 28px}
-    .contact-links{display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
 
-    /* ---------- Footer ---------- */
-    footer{border-top:1px solid var(--border); padding:28px 0; color:var(--muted); font-size:.86rem}
-    .footer-inner{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
-
-    /* ---------- Responsive ---------- */
-    @media (max-width:900px){
-      .hero-inner{grid-template-columns:1fr; gap:40px}
-      .grid-3{grid-template-columns:1fr 1fr}
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
     }
-    @media (max-width:680px){
-      .nav-links{
-        position:fixed; inset:72px 0 auto 0; flex-direction:column;
-        background:var(--bg); border-bottom:1px solid var(--border);
-        padding:20px 24px; gap:18px; display:none;
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--text); font-size: 1rem; }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: var(--blue); color: #fff; font-size: 0.8rem; font-weight: 800;
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { color: var(--muted); font-size: 0.92rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    .btn {
+      display: inline-block; padding: 9px 18px; border-radius: 8px;
+      font-weight: 600; font-size: 0.9rem; border: 1px solid transparent;
+      transition: background 0.2s ease; cursor: pointer;
+    }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover { background: var(--blue-dark); text-decoration: none; }
+    .btn-outline { border-color: var(--border); color: var(--text); background: #fff; }
+    .btn-outline:hover { background: var(--surface); text-decoration: none; }
+
+    .menu-toggle {
+      display: none; background: none; border: 1px solid var(--border);
+      color: var(--text); border-radius: 8px; padding: 7px 11px;
+      font-size: 1rem; cursor: pointer;
+    }
+
+    /* Hero */
+    .hero { padding: 64px 0 48px; }
+    .hero-inner { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: center; }
+    .hero p.lead { color: var(--muted); font-size: 1rem; margin-top: 14px; max-width: 540px; }
+    .hero-cta { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 28px; margin-top: 32px; flex-wrap: wrap; }
+    .stat b { display: block; font-size: 1.3rem; color: var(--text); }
+    .stat span { font-size: 0.82rem; color: var(--muted); }
+
+    .terminal { background: #1e2a3a; border-radius: var(--radius); overflow: hidden; box-shadow: 0 10px 30px -12px rgba(15, 30, 60, 0.25); }
+    .term-bar { display: flex; align-items: center; gap: 6px; padding: 10px 13px; background: #263444; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; }
+    .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+    .term-title { margin-left: auto; font-size: 0.72rem; color: #9fb0c5; font-family: ui-monospace, monospace; }
+    .term-body { padding: 16px 18px; font-family: ui-monospace, monospace; font-size: 0.8rem; line-height: 1.9; color: #cdd8e6; }
+    .term-body .prompt { color: #67ddb0; }
+    .term-body .cmd { color: #8ab8ff; }
+    .term-body .out { color: #9fb0c5; }
+
+    /* Skills */
+    .grid { display: grid; gap: 16px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+    }
+    .card-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: grid; place-items: center;
+      background: var(--surface-2); color: var(--blue);
+      font-size: 1rem; margin-bottom: 12px;
+    }
+    .card h3 { margin-bottom: 6px; font-size: 0.98rem; }
+    .card p { color: var(--muted); font-size: 0.88rem; }
+
+    /* Projects — clickable cards */
+    .project-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px;
+      cursor: pointer; text-align: left;
+      transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .project-card:hover {
+      box-shadow: 0 8px 20px -8px rgba(30, 60, 120, 0.15);
+      transform: translateY(-2px);
+      border-color: var(--blue);
+    }
+    .project-card h3 { font-size: 1rem; }
+    .project-card p { color: var(--muted); font-size: 0.88rem; }
+    .project-card .hint {
+      font-size: 0.8rem; font-weight: 600; color: var(--blue);
+      margin-top: 6px;
+    }
+    .project-card .tags { margin-top: 8px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 0.72rem; font-weight: 600;
+      padding: 3px 9px; border-radius: 999px;
+      background: var(--surface-2); color: var(--blue-dark);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(15, 25, 40, 0.55);
+      display: none; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal {
+      background: #fff; border-radius: 14px;
+      max-width: 620px; width: 100%;
+      max-height: 90vh; overflow-y: auto;
+      padding: 28px; position: relative;
+      animation: pop 0.18s ease-out;
+    }
+    @keyframes pop {
+      from { transform: translateY(10px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--surface); border: none;
+      width: 32px; height: 32px; border-radius: 50%;
+      font-size: 1.1rem; cursor: pointer; color: var(--muted);
+    }
+    .modal-close:hover { background: var(--surface-2); color: var(--text); }
+    .modal h3 { font-size: 1.25rem; margin-bottom: 6px; padding-right: 32px; }
+    .modal .modal-sub { color: var(--blue); font-weight: 600; font-size: 0.86rem; margin-bottom: 14px; }
+    .modal p { color: var(--muted); font-size: 0.94rem; margin-bottom: 12px; }
+    .modal ul { margin: 0 0 14px 18px; color: var(--muted); font-size: 0.92rem; }
+    .modal li { margin-bottom: 4px; }
+    .modal .tags { margin-bottom: 16px; }
+    .modal .btn { margin-top: 6px; }
+
+    /* Education */
+    .edu-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+    .edu-card h3 { font-size: 0.96rem; margin-bottom: 4px; }
+    .edu-card .meta { color: var(--muted); font-size: 0.85rem; }
+    .edu-card .badge {
+      display: inline-block; margin-top: 8px;
+      font-size: 0.72rem; font-weight: 700;
+      padding: 3px 9px; border-radius: 999px;
+      background: #e8f5ee; color: var(--green);
+    }
+
+    /* Contact */
+    .contact-card {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 40px 24px; text-align: center;
+    }
+    .contact-card h2 { margin-bottom: 10px; }
+    .contact-card p { color: var(--muted); max-width: 520px; margin: 0 auto 22px; }
+    .contact-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 22px 0; color: var(--muted); font-size: 0.84rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    /* Experience */
+    .timeline { padding-left: 24px; position: relative; }
+    .timeline::before {
+      content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px;
+      width: 2px; background: var(--border);
+    }
+    .job { position: relative; padding-bottom: 28px; }
+    .job:last-child { padding-bottom: 0; }
+    .job::before {
+      content: ""; position: absolute; left: -24px; top: 6px;
+      width: 13px; height: 13px; border-radius: 50%;
+      background: #fff; border: 3px solid var(--blue);
+    }
+    .job-top { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; align-items: baseline; }
+    .job .company { color: var(--blue); font-weight: 600; font-size: 0.9rem; }
+    .job .period {
+      font-size: 0.78rem; color: var(--muted);
+      background: var(--surface); padding: 2px 9px; border-radius: 999px; white-space: nowrap;
+    }
+    .job ul { margin-top: 8px; padding-left: 18px; color: var(--muted); font-size: 0.9rem; }
+    .job li { margin-bottom: 5px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nav-links {
+        position: fixed; inset: 64px 0 auto 0;
+        flex-direction: column; align-items: flex-start;
+        background: #fff; border-bottom: 1px solid var(--border);
+        padding: 16px 20px; gap: 12px; display: none;
       }
-      .nav-links.open{display:flex}
-      .menu-toggle{display:block}
-      .grid-3{grid-template-columns:1fr}
-      .section{padding:64px 0}
-      .hero-stats{gap:24px}
-      .job-top{flex-direction:column}
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: block; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .section { padding: 44px 0; }
+      .hero { padding: 44px 0 36px; }
+      .job-top { flex-direction: column; gap: 4px; }
+      .hero-stats { gap: 20px; }
     }
-    @media (prefers-reduced-motion:reduce){
-      *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
     }
   </style>
 </head>
@@ -198,9 +312,10 @@
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
-      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="btn btn-primary">Contact</a>
     </nav>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
   </div>
@@ -208,25 +323,24 @@
 
 <main id="top">
 
-  <!-- HERO -->
+  <!-- Hero -->
   <section class="hero">
     <div class="wrap hero-inner">
       <div>
         <p class="eyebrow">Junior Linux System Administrator</p>
-        <h1>RHCSA trained.<br><span>AWS certified. Ready to operate.</span></h1>
-        <p>
-          BCA graduate (2026) and AWS Certified Cloud Practitioner with completed RHCSA training.
-          Hands-on with RHEL, CentOS and Ubuntu through lab projects covering user management,
-          LVM storage, NFS/Samba, SSH, systemd and Bash — plus Ansible automation and Zabbix
-          monitoring on real AWS EC2 instances.
+        <h1>Hi, I'm Mahesh. I keep Linux servers running smoothly.</h1>
+        <p class="lead">
+          BCA graduate (2026), AWS Certified Cloud Practitioner, and RHCSA trained.
+          I have hands-on lab experience with RHEL, CentOS and Ubuntu, and I'm
+          looking for a Junior Linux Admin or Linux Support role.
         </p>
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Hire me</a>
-          <a href="#projects" class="btn btn-ghost">View projects</a>
+          <a href="#projects" class="btn btn-outline">View projects</a>
         </div>
         <div class="hero-stats">
-          <div class="stat"><b>3 mo</b><span>L1 operations experience</span></div>
-          <div class="stat"><b>6+</b><span>Linux/AWS projects</span></div>
+          <div class="stat"><b>3 months</b><span>L1 support experience</span></div>
+          <div class="stat"><b>5+</b><span>Linux &amp; AWS projects</span></div>
           <div class="stat"><b>2</b><span>AWS certifications</span></div>
         </div>
       </div>
@@ -242,127 +356,145 @@
           <div><span class="prompt">$</span> <span class="cmd">ansible all -m ping</span></div>
           <div class="out">ubuntu-1 | SUCCESS => ping: pong</div>
           <div class="out">ubuntu-2 | SUCCESS => ping: pong</div>
-          <div><span class="prompt">$</span> <span class="cmd">lsblk | grep vg_data</span></div>
-          <div class="out">├─vg_data-lv_home  20G  /home</div>
-          <div><span class="prompt">$</span> <span class="cmd"></span><span class="cursor"></span></div>
+          <div><span class="prompt">$</span> <span class="cmd">systemctl is-active nginx</span></div>
+          <div class="out">active</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section class="section" id="skills">
+  <!-- Skills -->
+  <section class="section section-alt" id="skills">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Core competencies</p>
-        <h2>What I work with</h2>
-        <p class="lead">Practical Linux administration, automation, monitoring, and cloud fundamentals built through labs and field work.</p>
+        <p class="eyebrow">Skills</p>
+        <h2>What I can do</h2>
       </div>
-      <div class="grid grid-3">
 
+      <div class="grid grid-3">
         <div class="card">
           <div class="card-icon">🐧</div>
           <h3>Linux Administration</h3>
-          <p>Filesystem hierarchy, process and service management with systemd and systemctl, journalctl logs, boot process and GRUB basics, package management with YUM/DNF/APT.</p>
-          <div class="tags">
-            <span class="tag">RHEL</span><span class="tag">Ubuntu</span>
-            <span class="tag">CentOS</span><span class="tag">Rocky</span>
-          </div>
+          <p>systemd, journalctl, boot process, GRUB, YUM/DNF/APT packages.</p>
         </div>
-
         <div class="card">
           <div class="card-icon">🔐</div>
           <h3>Users &amp; Permissions</h3>
-          <p>User and group administration, UID/GID management, chmod, chown, umask, sudoers configuration, ACLs, and special permissions including SUID, SGID and Sticky Bit.</p>
-          <div class="tags">
-            <span class="tag">chmod</span><span class="tag">ACL</span>
-            <span class="tag">sudoers</span><span class="tag">SUID</span>
-          </div>
+          <p>Users, groups, chmod, chown, sudoers, ACLs, SUID/SGID/Sticky Bit.</p>
         </div>
-
         <div class="card">
           <div class="card-icon">💾</div>
           <h3>Storage &amp; Filesystems</h3>
-          <p>Disk management with fdisk, partitions, mount/umount, /etc/fstab, LVM (PV, VG, LV), filesystem checks with df/du/lsblk, and backup with rsync.</p>
-          <div class="tags">
-            <span class="tag">LVM</span><span class="tag">fdisk</span>
-            <span class="tag">fstab</span><span class="tag">rsync</span>
-          </div>
+          <p>fdisk, partitions, fstab, LVM (PV/VG/LV), df/du/lsblk, rsync.</p>
         </div>
-
         <div class="card">
           <div class="card-icon">⚙️</div>
           <h3>Automation</h3>
-          <p>Bash scripting for operational tasks and Ansible YAML playbooks for repeatable configuration, including reusable roles with variables and handlers across multiple servers.</p>
-          <div class="tags">
-            <span class="tag">Bash</span><span class="tag">Ansible</span>
-            <span class="tag">YAML</span><span class="tag">Roles</span>
-          </div>
+          <p>Bash scripting and Ansible playbooks with reusable roles and handlers.</p>
         </div>
-
         <div class="card">
           <div class="card-icon">📊</div>
           <h3>Monitoring</h3>
-          <p>Zabbix 7.0 Server and Agent deployment with MySQL backend, host templates, dashboard verification, and documented troubleshooting workflows.</p>
-          <div class="tags">
-            <span class="tag">Zabbix</span><span class="tag">MySQL</span>
-            <span class="tag">Templates</span>
-          </div>
+          <p>Zabbix 7.0 Server &amp; Agent, MySQL backend, host templates.</p>
         </div>
-
         <div class="card">
           <div class="card-icon">☁️</div>
           <h3>AWS Cloud</h3>
-          <p>AWS Certified Cloud Practitioner — EC2 provisioning, VPC with public subnets and route tables, Security Groups, IAM permissions, EBS storage and S3 backups.</p>
-          <div class="tags">
-            <span class="tag">EC2</span><span class="tag">VPC</span>
-            <span class="tag">IAM</span><span class="tag">S3</span>
-          </div>
+          <p>EC2, VPC, Security Groups, IAM, EBS, S3 backups.</p>
         </div>
-
         <div class="card">
           <div class="card-icon">🌐</div>
-          <h3>Networking &amp; Security</h3>
-          <p>TCP/IP, IP addressing, DNS, LAN troubleshooting, SSH key-based authentication, UFW and firewalld rules, and Apache/Nginx web hosting with SSL/TLS.</p>
-          <div class="tags">
-            <span class="tag">TCP/IP</span><span class="tag">DNS</span>
-            <span class="tag">SSH</span><span class="tag">firewalld</span>
-          </div>
+          <h3>Networking</h3>
+          <p>TCP/IP, DNS, SSH, UFW, firewalld, Apache &amp; Nginx with SSL/TLS.</p>
         </div>
-
         <div class="card">
           <div class="card-icon">📁</div>
           <h3>File Sharing</h3>
-          <p>NFS server and client configuration with exports and firewall rules, and Samba file server setup on Ubuntu for sharing with Windows clients.</p>
-          <div class="tags">
-            <span class="tag">NFS</span><span class="tag">Samba</span>
-            <span class="tag">exports</span>
-          </div>
+          <p>NFS server/client with exports, Samba sharing with Windows.</p>
         </div>
-
         <div class="card">
           <div class="card-icon">🖥️</div>
-          <h3>L1 Operations Support</h3>
-          <p>On-site technical support, system readiness checks, live-session monitoring, incident investigation, timely escalation, and coordination with technical teams.</p>
-          <div class="tags">
-            <span class="tag">L1 Support</span><span class="tag">Incident</span>
-            <span class="tag">Escalation</span>
-          </div>
+          <h3>L1 Support</h3>
+          <p>On-site support, readiness checks, incident escalation.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects (click to open modal) -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Projects</p>
+        <h2>What I've built</h2>
+        <p>Click any project to see the full details.</p>
+      </div>
+
+      <div class="grid grid-2">
+
+        <button class="project-card" data-project="ansible">
+          <h3>Linux Server Automation Using Ansible</h3>
+          <p>Manage 2 Ubuntu servers on AWS from one control node using playbooks.</p>
+          <div class="tags">
+            <span class="tag">Ansible</span><span class="tag">AWS EC2</span><span class="tag">Ubuntu</span>
+          </div>
+          <span class="hint">Click for details →</span>
+        </button>
+
+        <button class="project-card" data-project="aws-web">
+          <h3>Secure Web Server on AWS EC2</h3>
+          <p>Custom VPC, EC2, Security Groups, IAM and Nginx hosting.</p>
+          <div class="tags">
+            <span class="tag">AWS</span><span class="tag">VPC</span><span class="tag">Nginx</span>
+          </div>
+          <span class="hint">Click for details →</span>
+        </button>
+
+        <button class="project-card" data-project="zabbix">
+          <h3>Zabbix 7.0 Monitoring Lab</h3>
+          <p>Zabbix Server + Agent monitoring with MySQL and dashboards.</p>
+          <div class="tags">
+            <span class="tag">Zabbix</span><span class="tag">MySQL</span><span class="tag">Apache2</span>
+          </div>
+          <span class="hint">Click for details →</span>
+        </button>
+
+        <button class="project-card" data-project="storage">
+          <h3>Linux Storage &amp; File Sharing</h3>
+          <p>LVM, NFS and Samba configuration on Linux.</p>
+          <div class="tags">
+            <span class="tag">LVM</span><span class="tag">NFS</span><span class="tag">Samba</span>
+          </div>
+          <span class="hint">Click for details →</span>
+        </button>
+
+        <button class="project-card" data-project="apache">
+          <h3>Apache Web Hosting with SSL/TLS</h3>
+          <p>Virtual Hosts and HTTPS on CentOS 8 with firewalld.</p>
+          <div class="tags">
+            <span class="tag">Apache</span><span class="tag">SSL/TLS</span><span class="tag">CentOS 8</span>
+          </div>
+          <span class="hint">Click for details →</span>
+        </button>
+
+        <a href="https://github.com/MaheshArde2002" target="_blank" rel="noopener" class="project-card" style="text-decoration:none;">
+          <h3>More on GitHub</h3>
+          <p>Browse all my labs, documentation and screenshots.</p>
+          <div class="tags"><span class="tag">GitHub</span><span class="tag">Documentation</span></div>
+          <span class="hint">Open GitHub →</span>
+        </a>
 
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section class="section" id="experience" style="background:var(--surface2)">
+  <!-- Experience -->
+  <section class="section section-alt" id="experience">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Career</p>
-        <h2>Experience</h2>
-        <p class="lead">Hands-on L1 technical operations in high-pressure live environments.</p>
+        <p class="eyebrow">Experience</p>
+        <h2>Where I've worked</h2>
       </div>
-
       <div class="timeline">
         <article class="job">
           <div class="job-top">
@@ -370,107 +502,74 @@
               <h3>Technical Operations Associate</h3>
               <span class="company">A Square Manpower Solutions · Digital Examination Systems</span>
             </div>
-            <span class="period">Dec 2025 — Feb 2026</span>
+            <span class="period">Dec 2025 – Feb 2026</span>
           </div>
           <ul>
-            <li>Provided on-site L1 technical support and troubleshooting for 300+ candidates across 10 examination centres during live online examinations.</li>
-            <li>Installed and configured examination software on Windows systems and performed system readiness checks before each session.</li>
-            <li>Monitored system and network connectivity, performing basic TCP/IP, IP addressing, DNS and LAN troubleshooting.</li>
-            <li>Investigated technical issues during live exams to minimise disruption and maintain system availability.</li>
-            <li>Identified and escalated incidents within defined timelines and coordinated with technical teams for resolution.</li>
+            <li>Provided on-site L1 support for 300+ candidates across 10 exam centres during live exams.</li>
+            <li>Installed and configured exam software and ran system readiness checks.</li>
+            <li>Handled basic TCP/IP, DNS and LAN troubleshooting during sessions.</li>
+            <li>Investigated issues to minimise disruption and escalated on time.</li>
           </ul>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
+  <!-- Education -->
+  <section class="section" id="education">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Hands-on work</p>
-        <h2>Projects &amp; Labs</h2>
-        <p class="lead">Practical builds documented with screenshots, command references and troubleshooting guides.</p>
+        <p class="eyebrow">Education &amp; Certifications</p>
+        <h2>My background</h2>
       </div>
       <div class="grid grid-3">
-
-        <article class="project">
-          <h3>Linux Server Automation Using Ansible</h3>
-          <p>Automated administration of 2 Ubuntu EC2 servers from a single Ansible control node using SSH key-based auth and an inventory file. Playbooks manage users, groups and permissions, install Nginx and Apache2 with a custom page, configure UFW rules, and generate a system monitoring report (CPU, memory, disk, uptime, IP). Refactored Apache2 and UFW playbooks into reusable roles with variables and handlers.</p>
-          <div class="tags">
-            <span class="tag">Ansible</span><span class="tag">Ubuntu</span>
-            <span class="tag">AWS EC2</span><span class="tag">Roles</span>
-          </div>
-          <a class="project-link" href="https://github.com/MaheshArde2002/linux-automation-with-ansible" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-
-        <article class="project">
-          <h3>Secure Web Server on AWS EC2</h3>
-          <p>Built a custom VPC with a public subnet, Internet Gateway and route table, and launched an Ubuntu EC2 instance accessed over SSH. Restricted access with Security Groups and IAM permissions, attached EBS storage, and used S3 for backup. Deployed a website on Nginx from GitHub and wrote a troubleshooting guide for common server and connectivity issues.</p>
-          <div class="tags">
-            <span class="tag">AWS</span><span class="tag">VPC</span>
-            <span class="tag">EC2</span><span class="tag">Nginx</span>
-          </div>
-          <a class="project-link" href="https://github.com/MaheshArde2002/secure-aws-web-server" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-
-        <article class="project">
-          <h3>Zabbix 7.0 Server &amp; Agent Monitoring Lab</h3>
-          <p>Installed Zabbix 7.0 Server with MySQL database and Apache2 web frontend, configured the database user, schema and server settings. Set up the Zabbix Agent on a remote Linux client, added it as a host with the Linux template, and verified availability from the dashboard. Documented with 21 screenshots, a command reference and troubleshooting guide.</p>
-          <div class="tags">
-            <span class="tag">Zabbix 7.0</span><span class="tag">MySQL</span>
-            <span class="tag">Apache2</span>
-          </div>
-          <a class="project-link" href="https://github.com/MaheshArde2002/zabbix-server-agent-monitoring" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-
-        <article class="project">
-          <h3>Linux Storage Management (LVM) &amp; File Sharing</h3>
-          <p>Partitioned a new disk with fdisk and built an LVM stack (PV, VG, LV), mounted persistently via /etc/fstab and tested with mount -a. Configured an NFS server and client with exports, firewall rules and client-side mounting, plus a Samba file server on Ubuntu for sharing files with Windows clients.</p>
-          <div class="tags">
-            <span class="tag">LVM</span><span class="tag">NFS</span>
-            <span class="tag">Samba</span><span class="tag">fdisk</span>
-          </div>
-        </article>
-
-        <article class="project">
-          <h3>Apache Web Hosting with SSL/TLS</h3>
-          <p>Configured Apache Virtual Hosts on CentOS 8 and enabled HTTPS using a self-signed SSL/TLS certificate, with firewalld rules for web traffic. Documented troubleshooting steps for the issues encountered during setup.</p>
-          <div class="tags">
-            <span class="tag">Apache</span><span class="tag">CentOS 8</span>
-            <span class="tag">SSL/TLS</span><span class="tag">firewalld</span>
-          </div>
-          <a class="project-link" href="https://github.com/MaheshArde2002/linux-apache-ssl-web-hosting-lab" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-
-        <article class="project">
-          <h3>Education &amp; Certifications</h3>
-          <p><strong>BCA</strong> — Kirandevi Saraf College, Mumbai · 2026 · CGPA 7.70/10.<br>
-          <strong>AWS Certified Cloud Practitioner</strong> — cloud concepts, services, security and pricing.<br>
-          <strong>AWS Technical Essentials</strong> — EC2, S3, VPC, IAM and RDS fundamentals.<br>
-          <strong>RHCSA training</strong> — completed.</p>
-          <div class="tags">
-            <span class="tag">BCA 2026</span><span class="tag">AWS CCP</span>
-            <span class="tag">RHCSA</span>
-          </div>
-        </article>
-
+        <div class="edu-card">
+          <h3>BCA</h3>
+          <p class="meta">Kirandevi Saraf College · 2026</p>
+          <p class="meta">CGPA 7.70 / 10</p>
+          <span class="badge">Graduated</span>
+        </div>
+        <div class="edu-card">
+          <h3>AWS Certified Cloud Practitioner</h3>
+          <p class="meta">Amazon Web Services</p>
+          <span class="badge">Certified</span>
+        </div>
+        <div class="edu-card">
+          <h3>AWS Technical Essentials</h3>
+          <p class="meta">EC2, S3, VPC, IAM, RDS</p>
+          <span class="badge">Completed</span>
+        </div>
+        <div class="edu-card">
+          <h3>RHCSA Training</h3>
+          <p class="meta">Red Hat Certified System Administrator</p>
+          <span class="badge">Completed</span>
+        </div>
+        <div class="edu-card">
+          <h3>HSC</h3>
+          <p class="meta">Maharashtra Board · 74.83%</p>
+          <span class="badge">Completed</span>
+        </div>
+        <div class="edu-card">
+          <h3>SSC</h3>
+          <p class="meta">Maharashtra Board · 73%</p>
+          <span class="badge">Completed</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
+  <!-- Contact -->
+  <section class="section section-alt" id="contact">
     <div class="wrap">
       <div class="contact-card">
-        <p class="eyebrow">Let's talk</p>
+        <p class="eyebrow">Contact</p>
         <h2>Looking for a Junior Linux Admin?</h2>
-        <p>I'm seeking a Junior Linux System Administrator or Linux Support Engineer role where I can apply my RHCSA training, AWS certification and hands-on lab experience.</p>
+        <p>I'm open to Junior Linux System Administrator and Linux Support Engineer roles.</p>
         <div class="contact-links">
           <a href="mailto:mahesh.arde2002@gmail.com" class="btn btn-primary">Email me</a>
-          <a href="tel:+918828552780" class="btn btn-ghost">Call +91 88285 52780</a>
-          <a href="https://www.linkedin.com/in/mahesh-arde-75b0bb31a/" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/MaheshArde2002" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+          <a href="tel:+918828552780" class="btn btn-outline">Call +91 88285 52780</a>
+          <a href="https://www.linkedin.com/in/mahesh-arde-75b0bb31a/" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/MaheshArde2002" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </div>
@@ -480,12 +579,25 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <span>© <span id="year"></span> Mahesh Arde — Mumbai, Maharashtra, India</span>
-    <span>BCA 2026 · AWS Certified Cloud Practitioner · RHCSA trained</span>
+    <span>© <span id="year"></span> Mahesh Arde · Mumbai, Maharashtra</span>
+    <span>BCA 2026 · AWS Certified · RHCSA trained</span>
   </div>
 </footer>
 
+<!-- Project modal -->
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="modalContent">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <h3 id="modalTitle"></h3>
+    <p class="modal-sub" id="modalSub"></p>
+    <div id="modalBody"></div>
+    <div class="tags" id="modalTags"></div>
+    <a class="btn btn-primary" id="modalLink" target="_blank" rel="noopener">View on GitHub</a>
+  </div>
+</div>
+
 <script>
+  // --- Mobile nav ---
   const toggle = document.getElementById('menuToggle');
   const links = document.getElementById('navLinks');
   toggle.addEventListener('click', () => {
@@ -498,7 +610,128 @@
       toggle.setAttribute('aria-expanded', 'false');
     })
   );
+
+  // --- Year ---
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // --- Project modal data ---
+  const projects = {
+    ansible: {
+      title: 'Linux Server Automation Using Ansible',
+      sub: 'Ansible · AWS EC2 · Ubuntu',
+      body: `
+        <p>Automated Linux administration across <strong>2 Ubuntu EC2 servers</strong> from a single Ansible control node using SSH key-based authentication and an inventory file.</p>
+        <ul>
+          <li>Wrote YAML playbooks to manage users, groups and permissions.</li>
+          <li>Installed Nginx and Apache2 with a custom web page.</li>
+          <li>Configured UFW firewall rules.</li>
+          <li>Generated a system monitoring report (CPU, memory, disk, uptime, IP).</li>
+          <li>Refactored Apache2 and UFW playbooks into reusable roles with variables and handlers.</li>
+        </ul>`,
+      tags: ['Ansible', 'AWS EC2', 'Ubuntu', 'YAML'],
+      link: 'https://github.com/MaheshArde2002/linux-automation-with-ansible'
+    },
+    'aws-web': {
+      title: 'Secure Web Server on AWS EC2',
+      sub: 'AWS · VPC · Nginx',
+      body: `
+        <p>Built a secure web server on AWS from scratch with a custom network setup.</p>
+        <ul>
+          <li>Created a custom VPC with a public subnet, Internet Gateway and route table.</li>
+          <li>Launched an Ubuntu EC2 instance accessed over SSH.</li>
+          <li>Restricted access with Security Groups and IAM permissions.</li>
+          <li>Attached EBS storage and used S3 for backups.</li>
+          <li>Deployed a website on Nginx from GitHub and wrote a troubleshooting guide.</li>
+        </ul>`,
+      tags: ['AWS', 'VPC', 'EC2', 'Nginx', 'S3'],
+      link: 'https://github.com/MaheshArde2002/secure-aws-web-server'
+    },
+    zabbix: {
+      title: 'Zabbix 7.0 Server & Agent Monitoring Lab',
+      sub: 'Zabbix · MySQL · Apache2',
+      body: `
+        <p>Set up end-to-end server monitoring using Zabbix 7.0.</p>
+        <ul>
+          <li>Installed Zabbix Server with MySQL database and Apache2 web frontend.</li>
+          <li>Configured database user, schema and server settings.</li>
+          <li>Set up the Zabbix Agent on a remote Linux client.</li>
+          <li>Added it as a host with the Linux template and verified availability from the dashboard.</li>
+          <li>Documented setup with 21 screenshots, a command reference and a troubleshooting guide.</li>
+        </ul>`,
+      tags: ['Zabbix 7.0', 'MySQL', 'Apache2'],
+      link: 'https://github.com/MaheshArde2002/zabbix-server-agent-monitoring'
+    },
+    storage: {
+      title: 'Linux Storage Management & File Sharing',
+      sub: 'LVM · NFS · Samba',
+      body: `
+        <p>Hands-on lab covering storage provisioning and cross-platform file sharing.</p>
+        <ul>
+          <li>Partitioned a new disk with <code>fdisk</code> and built an LVM stack (PV, VG, LV).</li>
+          <li>Mounted persistently using <code>/etc/fstab</code> and tested with <code>mount -a</code>.</li>
+          <li>Configured an NFS server and client with exports, firewall rules and client-side mounting.</li>
+          <li>Set up a Samba file server on Ubuntu for sharing files with Windows clients.</li>
+        </ul>`,
+      tags: ['LVM', 'NFS', 'Samba', 'fdisk'],
+      link: null
+    },
+    apache: {
+      title: 'Apache Web Hosting with SSL/TLS',
+      sub: 'Apache · CentOS 8 · SSL/TLS',
+      body: `
+        <p>Configured a secure Apache web server on CentOS 8.</p>
+        <ul>
+          <li>Set up Apache Virtual Hosts for multiple sites.</li>
+          <li>Enabled HTTPS using a self-signed SSL/TLS certificate.</li>
+          <li>Configured firewalld rules for web traffic.</li>
+          <li>Documented troubleshooting steps for each issue encountered.</li>
+        </ul>`,
+      tags: ['Apache', 'CentOS 8', 'SSL/TLS', 'firewalld'],
+      link: 'https://github.com/MaheshArde2002/linux-apache-ssl-web-hosting-lab'
+    }
+  };
+
+  const backdrop = document.getElementById('modalBackdrop');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalSub = document.getElementById('modalSub');
+  const modalBody = document.getElementById('modalBody');
+  const modalTags = document.getElementById('modalTags');
+  const modalLink = document.getElementById('modalLink');
+  const modalClose = document.getElementById('modalClose');
+
+  function openModal(id) {
+    const p = projects[id];
+    if (!p) return;
+    modalTitle.textContent = p.title;
+    modalSub.textContent = p.sub;
+    modalBody.innerHTML = p.body;
+    modalTags.innerHTML = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+    if (p.link) {
+      modalLink.style.display = 'inline-block';
+      modalLink.href = p.link;
+    } else {
+      modalLink.style.display = 'none';
+    }
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.project-card[data-project]').forEach(card => {
+    card.addEventListener('click', () => openModal(card.dataset.project));
+  });
+
+  modalClose.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', e => {
+    if (e.target === backdrop) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
 </script>
 </body>
 </html>
