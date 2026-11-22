@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mahesh-arde.github.io/sitemap.xml
+Sitemap: https://mahesh-arde-portfolio-kohl.vercel.app/sitemap.xml
